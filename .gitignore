@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+**/.vs/
+**/obj/
+**/bin/
+**/packages/
+**/.hg*
+**/.hg
+**/Keys/
+**/deploy/
+**/.config/
+**/.etc/
+**/Properties/
+*.csproj.user
+*Zidium.config
+**/.idea/
+*.pfx
+*.user
