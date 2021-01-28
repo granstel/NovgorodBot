@@ -7,10 +7,12 @@ namespace NovgorodBot.Services
     public class ConversationService : IConversationService
     {
         private readonly IDialogflowService _dialogflowService;
+        private readonly IGeolocationService _geolocationService;
 
-        public ConversationService(IDialogflowService dialogflowService)
+        public ConversationService(IDialogflowService dialogflowService, IGeolocationService geolocationService)
         {
             _dialogflowService = dialogflowService;
+            _geolocationService = geolocationService;
         }
 
         public async Task<Response> GetResponseAsync(Request request)
@@ -19,7 +21,7 @@ namespace NovgorodBot.Services
 
             Response response = new Response();
 
-            if(request.Geolocation != null)
+            if (request.Geolocation != null)
             {
                 response = await GetResponseByLocationAsync(request);
             }
@@ -31,7 +33,7 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
 
-            if(dialog?.Action?.Equals("REQUESTLOCATION", System.StringComparison.InvariantCultureIgnoreCase) == true)
+            if (dialog?.Action?.Equals("REQUESTLOCATION", System.StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 response.RequestGeolocation = true;
             }
@@ -44,6 +46,7 @@ namespace NovgorodBot.Services
 
         private async Task<Response> GetResponseByLocationAsync(Request request)
         {
+            var isAtMainArea = _geolocationService.IsGeolocationAtArea(request.Geolocation, null);
             return await Task.FromResult(default(Response));
         }
     }
