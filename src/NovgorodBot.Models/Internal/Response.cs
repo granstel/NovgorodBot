@@ -11,5 +11,6 @@ namespace NovgorodBot.Models.Internal
         public string AlternativeText { get; set; }
 
         public bool Finished { get; set; }
+        public bool RequestGeolocation { get; set; }
     }
 }

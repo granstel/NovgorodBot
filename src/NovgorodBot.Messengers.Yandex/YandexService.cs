@@ -39,6 +39,11 @@ namespace NovgorodBot.Messengers.Yandex
 
             _mapper.Map(input, output);
 
+            if(response?.RequestGeolocation == true)
+            {
+                output.InitRequestGeolocation();
+            }
+
             return output;
         }
     }

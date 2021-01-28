@@ -7,21 +7,26 @@ namespace NovgorodBot.Services
     {
         private readonly IDialogflowService _dialogflowService;
 
-        //TODO: uncomment when you fill in the Dialogflow settings, or remove it
-        public ConversationService(/*IDialogflowService dialogflowService*/)
+        public ConversationService(IDialogflowService dialogflowService)
         {
-            //_dialogflowService = dialogflowService;
+            _dialogflowService = dialogflowService;
         }
 
         public async Task<Response> GetResponseAsync(Request request)
         {
             //TODO: processing commands, invoking external services, and other cool asynchronous staff to generate response
 
-            //TODO: uncomment when you fill in the Dialogflow settings, or remove it
-            //var dialog = await _dialogflowService.GetResponseAsync(request);
-            //var response = new Response { Text = dialog.Response, Finished = dialog.EndConversation };
+            Response response = new Response();
 
-            var response = new Response { Text = "Success test!" };
+            var dialog = await _dialogflowService.GetResponseAsync(request);
+
+            if(dialog?.Action?.Equals("REQUESTLOCATION", System.StringComparison.InvariantCultureIgnoreCase) == true)
+            {
+                response.RequestGeolocation = true;
+            }
+
+            response.Text = dialog.Response;
+            response.Finished = dialog.EndConversation;
 
             return response;
         }
