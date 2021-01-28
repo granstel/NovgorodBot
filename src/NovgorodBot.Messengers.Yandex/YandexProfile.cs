@@ -3,6 +3,7 @@ using AutoMapper;
 using NovgorodBot.Models.Internal;
 using Yandex.Dialogs.Models;
 using Yandex.Dialogs.Models.Input;
+using NovgorodBot.Models;
 using InternalModels = NovgorodBot.Models.Internal;
 using YandexModels = Yandex.Dialogs.Models;
 
@@ -22,7 +23,12 @@ namespace NovgorodBot.Messengers.Yandex
                 .ForMember(d => d.SessionId, m => m.MapFrom((s, d) => s.Session?.SessionId))
                 .ForMember(d => d.NewSession, m => m.MapFrom((s, d) => s.Session?.New))
                 .ForMember(d => d.Language, m => m.MapFrom((s, d) => s.Meta?.Locale))
+                .ForMember(d => d.Geolocation, m => m.MapFrom((s, d) => s.Session?.Location))
                 .ForMember(d => d.Source, m => m.MapFrom(s => Source.Yandex));
+
+            CreateMap<Location, Geolocation>()
+                .ForMember(d => d.Lat, m => m.MapFrom(s => s.Lat))
+                .ForMember(d => d.Lon, m => m.MapFrom(s => s.Lon));
 
             CreateMap<InternalModels.Response, OutputModel>()
                 .ForMember(d => d.Response, m => m.MapFrom(s => s))

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NovgorodBot.Models.Internal;
 
 namespace NovgorodBot.Services
@@ -18,6 +19,16 @@ namespace NovgorodBot.Services
 
             Response response = new Response();
 
+            if(request.Geolocation != null)
+            {
+                response = await GetResponseByLocationAsync(request);
+            }
+
+            if (response != null)
+            {
+                return response;
+            }
+
             var dialog = await _dialogflowService.GetResponseAsync(request);
 
             if(dialog?.Action?.Equals("REQUESTLOCATION", System.StringComparison.InvariantCultureIgnoreCase) == true)
@@ -29,6 +40,11 @@ namespace NovgorodBot.Services
             response.Finished = dialog.EndConversation;
 
             return response;
+        }
+
+        private async Task<Response> GetResponseByLocationAsync(Request request)
+        {
+            return await Task.FromResult(default(Response));
         }
     }
 }
