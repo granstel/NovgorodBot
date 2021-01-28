@@ -14,9 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NovgorodBot.Messengers.Yandex\NovgorodBot.Messengers.Yandex.csproj" />
     <ProjectReference Include="..\NovgorodBot.Models\NovgorodBot.Models.csproj" />
     <ProjectReference Include="..\NovgorodBot.Services\NovgorodBot.Services.csproj" />
-    <ProjectReference Include="..\NovgorodBot.Messengers.Yandex\NovgorodBot.Messengers.Yandex.csproj" />
   </ItemGroup>
 
   <ItemGroup>
