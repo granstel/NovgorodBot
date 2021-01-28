@@ -1,0 +1,50 @@
+{
+  "id": "9656f425-d832-444d-9a8e-502a1149de49",
+  "name": "WelcomeWithoutScreen",
+  "auto": true,
+  "contexts": [
+    "WelcomeWithoutScreen"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "WelcomeWithoutScreen",
+          "lifespan": 500
+        },
+        {
+          "name": "WelcomeWithoutScreen-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Привет! В Великом Новгороде много всего интересного, но чтобы у меня получилось обо всём рассказать, рекомендую перейти в этот навык на устройстве с экраном. На всякий случай, этот навык называется \"чем заняться в Великом Новгороде\". Ты пока переходи, а я буду там тебя ждать"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WelcomeWithoutScreen"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

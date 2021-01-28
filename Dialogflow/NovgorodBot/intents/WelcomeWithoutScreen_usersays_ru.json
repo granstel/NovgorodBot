@@ -1,0 +1,28 @@
+[
+  {
+    "id": "212020c2-acbf-498a-b8c6-e9b1ae3733e9",
+    "data": [
+      {
+        "text": "WelcomeWithoutScreen",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "7821053d-03a4-4c84-b590-dff43f1472a8",
+    "data": [
+      {
+        "text": "привет",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "id": "99982c2a-ce64-4954-92fc-25d9e48e9aa5",
+  "parentId": "9656f425-d832-444d-9a8e-502a1149de49",
+  "rootParentId": "9656f425-d832-444d-9a8e-502a1149de49",
+  "name": "WelcomeWithoutScreen - fallback",
+  "contexts": [
+    "WelcomeWithoutScreen",
+    "WelcomeWithoutScreen-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Я всё ещё жду тебя в этом навыке, но на устройстве с экраном",
+            "Приходи в этот навык через устройство с экраном, тогда всё расскажу",
+            "Жду тебя в этом навыке, но на устройстве с экраном. Приходи, тогда поговорим",
+            "Приходи в этот навык через устройство с экраном, тогда и поговорим"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

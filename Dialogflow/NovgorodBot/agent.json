@@ -1,0 +1,22 @@
+{
+  "description": "",
+  "language": "ru",
+  "shortDescription": "",
+  "examples": "",
+  "linkToDocs": "",
+  "displayName": "NovgorodBot",
+  "disableInteractionLogs": false,
+  "disableStackdriverLogs": true,
+  "defaultTimezone": "Europe/Moscow",
+  "isPrivate": true,
+  "mlMinConfidence": 0.3,
+  "supportedLanguages": [],
+  "enableOnePlatformApi": true,
+  "onePlatformApiVersion": "v2",
+  "secondaryKey": "a9c9c1e63b24444eac7a4aaafd70a964",
+  "analyzeQueryTextSentiment": false,
+  "enabledKnowledgeBaseNames": [],
+  "knowledgeServiceConfidenceAdjustment": 0.0,
+  "dialogBuilderMode": false,
+  "baseActionPackagesUrl": ""
+}

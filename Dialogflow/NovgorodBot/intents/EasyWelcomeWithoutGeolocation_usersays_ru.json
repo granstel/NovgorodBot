@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1b08c425-3fa4-4948-8327-8c1e6eaea9aa",
+    "data": [
+      {
+        "text": "EasyWelcomeWithoutGeolocation",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d333aef3-b141-4cb6-920b-1c39d75eb18b",
+    "data": [
+      {
+        "text": "Привет",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "id": "69b0190c-df67-48de-83ea-1f44c0e803c7",
+  "name": "Default Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "REQUESTLOCATION",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Привет! В Великом Новгороде много всего интересного. Если откроешь мне гео-локацию, тогда смогу быстрее подсказать, чем там можно заняться. На сколько можешь открыть её мне?",
+            "Привет! В Великом Новгороде можно отлично провести время. Если откроешь мне гео-локацию, то я смогу быстрее подсказать разные интересные места рядом с тобой. На сколько можешь открыть её мне?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
