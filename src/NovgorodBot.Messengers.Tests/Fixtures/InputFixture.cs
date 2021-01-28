@@ -1,0 +1,6 @@
+﻿namespace NovgorodBot.Messengers.Tests.Fixtures
+{
+    public class InputFixture
+    {
+    }
+}

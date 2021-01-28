@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.*" />
+    <PackageReference Include="AutoFixture" Version="4.*" />
+    <PackageReference Include="nunit" Version="3.*" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />
+    <PackageReference Include="Moq" Version="4.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NovgorodBot.Messengers\NovgorodBot.Messengers.csproj" />
+    <ProjectReference Include="..\NovgorodBot.Models\NovgorodBot.Models.csproj" />
+    <ProjectReference Include="..\NovgorodBot.Services\NovgorodBot.Services.csproj" />
+  </ItemGroup>
+
+</Project>

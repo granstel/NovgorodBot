@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.*" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.*" />
+    <PackageReference Include="NLog" Version="4.*" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NovgorodBot.Models\NovgorodBot.Models.csproj" />
+    <ProjectReference Include="..\NovgorodBot.Services\NovgorodBot.Services.csproj" />
+    <ProjectReference Include="..\NovgorodBot.Messengers.Yandex\NovgorodBot.Messengers.Yandex.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
