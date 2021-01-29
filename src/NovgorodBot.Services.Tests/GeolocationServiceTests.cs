@@ -27,11 +27,22 @@ namespace NovgorodBot.Services.Tests
         [Test]
         public void WhenLocationAtArea_ThenReturnsArea()
         {
-            var location = _fixture.Create<Geolocation>();
+            var location = _fixture.Build<Geolocation>()
+                    .With(l => l.Lon, 31.2f)
+                    .With(l => l.Lat, 58.5f)
+                    .Create();
 
             var result = _target.GetArea(location);
 
             Assert.NotNull(result);
+        }
+        
+        [Test]
+        public void WhenLocationNull_ThenReturnsNull()
+        {
+            var result = _target.GetArea(null);
+
+            Assert.Null(result);
         }
     }
 }
