@@ -15,6 +15,7 @@ namespace NovgorodBot.Api.DependencyModules
             builder.RegisterType<QnaService>().As<IQnaService>();
             builder.RegisterType<DialogflowService>().As<IDialogflowService>();
             builder.RegisterType<GeolocationService>().As<IGeolocationService>();
+            builder.RegisterType<SkillsService>().As<ISkillsService>();
             builder.RegisterType<CustomJsonSerializer>().AsSelf();
 
             builder.Register(RegisterCacheService).As<IRedisCacheService>().SingleInstance();
