@@ -4,9 +4,9 @@ namespace NovgorodBot.Services
 {
     public class GeolocationService : IGeolocationService
     {
-        public bool IsGeolocationAtArea(Geolocation location, GeoArea area)
+        public GeoArea GetArea(Geolocation location)
         {
-            return false;
+            return null;
         }
     }
 }

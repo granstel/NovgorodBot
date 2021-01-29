@@ -25,18 +25,13 @@ namespace NovgorodBot.Services.Tests
         }
 
         [Test]
-        public void WhenLocationAtArea_ThenReturnsTrue()
+        public void WhenLocationAtArea_ThenReturnsArea()
         {
             var location = _fixture.Create<Geolocation>();
 
-            var area = _fixture.Build<GeoArea>()
-                .With(a => a.MinLat, location.Lat)
-                .With(a => a.MinLon, location.Lon)
-                .Create();
+            var result = _target.GetArea(location);
 
-            var result = _target.IsGeolocationAtArea(location, area);
-
-            Assert.True(result);
+            Assert.NotNull(result);
         }
     }
 }

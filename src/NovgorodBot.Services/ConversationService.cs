@@ -46,7 +46,8 @@ namespace NovgorodBot.Services
 
         private async Task<Response> GetResponseByLocationAsync(Request request)
         {
-            var isAtMainArea = _geolocationService.IsGeolocationAtArea(request.Geolocation, null);
+            var area = _geolocationService.GetArea(request.Geolocation);
+
             return await Task.FromResult(default(Response));
         }
     }
