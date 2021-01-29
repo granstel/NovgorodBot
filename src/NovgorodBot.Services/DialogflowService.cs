@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Google.Cloud.Dialogflow.V2;
+using Google.Protobuf.WellKnownTypes;
 using NovgorodBot.Models.Internal;
 using NovgorodBot.Services.Configuration;
 using NovgorodBot.Services.Extensions;
@@ -44,9 +46,9 @@ namespace NovgorodBot.Services
             };
         }
 
-        public async Task<Dialog> GetResponseAsync(Request request)
+        public async Task<Dialog> GetResponseAsync(Request request, IDictionary<string, string> eventParameters = null)
         {
-            var intentRequest = CreateQuery(request);
+            var intentRequest = CreateQuery(request, eventParameters);
 
             if (_configuration.LogQuery)
                 _log.Trace($"Request:{System.Environment.NewLine}{intentRequest.Serialize()}");
@@ -63,11 +65,11 @@ namespace NovgorodBot.Services
             return response;
         }
 
-        private DetectIntentRequest CreateQuery(Request request)
+        private DetectIntentRequest CreateQuery(Request request, IDictionary<string, string> eventParameters = null)
         {
             var session = new SessionName(_configuration.ProjectId, request.SessionId);
 
-            var eventInput = ResolveEvent(request);
+            var eventInput = ResolveEvent(request, eventParameters);
 
             var query = new QueryInput
             {
@@ -92,7 +94,7 @@ namespace NovgorodBot.Services
             return intentRequest;
         }
 
-        public EventInput ResolveEvent(Request request)
+        private EventInput ResolveEvent(Request request, IDictionary<string, string> eventParameters = null)
         {
             var result = default(EventInput);
 
@@ -109,6 +111,16 @@ namespace NovgorodBot.Services
                 else
                 {
                     result = EventByCommand(request.Text);
+                }
+            }
+
+            if (result != null && eventParameters?.Any() == true)
+            {
+                result.Parameters = new Struct();
+
+                foreach (var eventParameter in eventParameters)
+                {
+                    result.Parameters.Fields.Add(eventParameter.Key, new Value {StringValue = eventParameter.Value});
                 }
             }
 

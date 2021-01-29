@@ -12,5 +12,7 @@ namespace NovgorodBot.Models.Internal
 
         public bool Finished { get; set; }
         public bool RequestGeolocation { get; set; }
+        
+        public Button[] Buttons { get; set; }
     }
 }
