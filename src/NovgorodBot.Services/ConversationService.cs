@@ -50,13 +50,18 @@ namespace NovgorodBot.Services
                 response.RequestGeolocation = true;
             }
 
-            response.Text = dialog.Response;
-
-            if (request.NewSession == true && request.IsOldUser)
+            if (dialog?.Action?.Equals("GETSKILLSBYCATEGORIES", System.StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                response.Text = $"С возвращением! {response.Text}";
+                var buttons = GetSkillsButtons(null);
+                response.Buttons = buttons;
             }
 
+            if(dialog?.Buttons?.Any() == true)
+            {
+                response.Buttons = dialog.Buttons;
+            }
+
+            response.Text = dialog.Response;
             response.Finished = dialog.EndConversation;
 
             return response;
@@ -70,15 +75,14 @@ namespace NovgorodBot.Services
 
             if (area == null)
             {
+                request.Text = "Start";
+
+                var dialog1 = await _dialogflowService.GetResponseAsync(request);
+
                 response = new Response
                 {
-                    Text = "Чем тебе хотелось бы заняться?",
-                    Buttons = new[]
-                    {
-                        new Button { Text = "Экскурсии"},
-                        new Button { Text = "Квесты"},
-                        new Button { Text = "Бары"},
-                    }
+                    Text = dialog1.Response,
+                    Buttons = dialog1.Buttons
                 };
 
                 return response;
@@ -93,9 +97,7 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request, parameters);
 
-            var names = _skillsService.GetSkills(area.Id);
-
-            var buttons = names.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
+            var buttons = GetSkillsButtons(area);
 
             response = new Response
             {
@@ -104,6 +106,15 @@ namespace NovgorodBot.Services
             };
 
             return await Task.FromResult(response);
+        }
+
+        private Button[] GetSkillsButtons(GeoArea area)
+        {
+            var skills = _skillsService.GetSkills(area?.Id);
+
+            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
+
+            return buttons;
         }
     }
 }

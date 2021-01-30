@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
+using GranSteL.Helpers.Redis;
 using NovgorodBot.Services;
 using Moq;
 using NUnit.Framework;
@@ -17,6 +18,7 @@ namespace NovgorodBot.Messengers.Yandex.Tests
 
         private Mock<IConversationService> _conversationService;
         private Mock<IMapper> _mapper;
+        private Mock<IRedisCacheService> _cache;
 
         private YandexService _target;
 
@@ -29,8 +31,9 @@ namespace NovgorodBot.Messengers.Yandex.Tests
 
             _conversationService = _mockRepository.Create<IConversationService>();
             _mapper = _mockRepository.Create<IMapper>();
+            _cache = _mockRepository.Create<IRedisCacheService>();
 
-            _target = new YandexService(_conversationService.Object, _mapper.Object);
+            _target = new YandexService(_conversationService.Object, _mapper.Object, _cache.Object);
 
             _fixture = new Fixture();
         }

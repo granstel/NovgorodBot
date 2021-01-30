@@ -13,5 +13,7 @@ namespace NovgorodBot.Models.Internal
         public string Response { get; set; }
 
         public string Action { get; set; }
+
+        public Button[] Buttons { get; set; }
     }
 }

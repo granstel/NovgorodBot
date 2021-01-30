@@ -7,19 +7,19 @@ namespace NovgorodBot.Services
 {
     public class GeolocationService : IGeolocationService
     {
-        static Random rnd = new Random();
+        private static readonly Random Rnd = new Random();
 
         private static readonly List<GeoArea> Areas = new List<GeoArea>
         {
-                new GeoArea
-                {
-                    Id = 0,
-                    Name = "Великий Новгород",
-                    MinLon = 31.187262f,
-                    MaxLon = 31.429352f,
-                    MinLat = 58.470034f,
-                    MaxLat = 58.653285f
-                },
+                //new GeoArea
+                //{
+                //    Id = 0,
+                //    Name = "Великий Новгород",
+                //    MinLon = 31.187262f,
+                //    MaxLon = 31.429352f,
+                //    MinLat = 58.470034f,
+                //    MaxLat = 58.653285f
+                //},
                 new GeoArea
                 {
                     Id = 0,
@@ -66,7 +66,7 @@ namespace NovgorodBot.Services
             }
 
             //var area = Areas.FirstOrDefault(a => a.IsCovers(location));
-            var item = rnd.Next(Areas.Count);
+            var item = Rnd.Next(Areas.Count);
 
             return Areas[item];
         }

@@ -22,10 +22,15 @@ namespace NovgorodBot.Services
             }
         };
 
-        public ICollection<Skill> GetSkills(int areaId)
+        public ICollection<Skill> GetSkills(int? areaId)
         {
+            if (areaId == null)
+            {
+                return Skills;
+            }
+
             var names = Skills
-                .Where(s => s.Areas.Contains(areaId))
+                .Where(s => s.Areas.Contains(areaId.GetValueOrDefault()))
                 .ToList();
 
             return names;

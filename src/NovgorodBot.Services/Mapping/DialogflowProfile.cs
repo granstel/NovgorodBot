@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using Google.Cloud.Dialogflow.V2;
 using Google.Protobuf.WellKnownTypes;
+using NovgorodBot.Models;
 using NovgorodBot.Models.Internal;
 
 namespace NovgorodBot.Services.Mapping
@@ -14,6 +15,7 @@ namespace NovgorodBot.Services.Mapping
             CreateMap<QueryResult, Dialog>()
                 .ForMember(d => d.Parameters, m => m.MapFrom(s => GetParameters(s)))
                 .ForMember(d => d.Response, m => m.MapFrom(s => s.FulfillmentText))
+                .ForMember(d => d.Buttons, m => m.MapFrom(s => GetButtons(s)))
                 .ForMember(d => d.ParametersIncomplete, m => m.MapFrom(s => !s.AllRequiredParamsPresent))
                 .ForMember(d => d.Action, m => m.MapFrom(s => s.Action))
                 .ForMember(d => d.EndConversation, m => m.Ignore())
@@ -60,6 +62,34 @@ namespace NovgorodBot.Services.Mapping
             }
 
             return dictionary;
+        }
+
+        private Button[] GetButtons(QueryResult s)
+        {
+            var quickReplies = s?.FulfillmentMessages
+                ?.Where(m => m.MessageCase == Intent.Types.Message.MessageOneofCase.QuickReplies)
+                .SelectMany(m => m.QuickReplies.QuickReplies_.Select(r => new Button
+                {
+                    Text = r,
+                    QuickReply = true
+                })).Where(r => r != null).ToList();
+
+            var cards = s?.FulfillmentMessages
+                ?.Where(m => m.MessageCase == Intent.Types.Message.MessageOneofCase.Card)
+                .SelectMany(m => m.Card.Buttons.Select(b => new Button
+                {
+                    Text = b.Text,
+                    Url = b.Postback
+                })).Where(b => b != null).ToList();
+
+            if (quickReplies != null)
+            {
+                quickReplies.AddRange(cards);
+
+                return quickReplies.ToArray();
+            }
+
+            return null;
         }
     }
 }

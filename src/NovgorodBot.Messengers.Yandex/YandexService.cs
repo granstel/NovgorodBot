@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using GranSteL.Helpers.Redis;
+using NLog;
 using NovgorodBot.Services;
 using NovgorodBot.Services.Extensions;
 using Yandex.Dialogs.Models;
@@ -17,6 +18,10 @@ namespace NovgorodBot.Messengers.Yandex
 
         private const string IsOldUserKey = "ISOLDUSER";
 
+        private const string ErrorAnswer = "Прости, у меня какие-то проблемы... Давай попробуем ещё раз. Если повторится, расскажи об этому Степану (granstel)";
+
+        private readonly Logger _log = LogManager.GetLogger(nameof(YandexService));
+
         private readonly IMapper _mapper;
         private readonly IRedisCacheService _cache;
 
@@ -28,16 +33,16 @@ namespace NovgorodBot.Messengers.Yandex
 
         protected override InternalModels.Request Before(InputModel input)
         {
+            if (string.IsNullOrEmpty(input.Request.Command) && string.IsNullOrEmpty(input.Request.OriginalUtterance))
+            {
+                input.Request.OriginalUtterance = input.Request.Type;
+            }
+
             var request = base.Before(input);
 
             _cache.TryGet($"{IsOldUserKey}:{input.Session.UserId}", out bool isOldUser);
 
             request.IsOldUser = isOldUser;
-
-            if (isOldUser)
-            {
-                request.Text = IsOldUserKey;
-            }
 
             return request;
         }
@@ -52,6 +57,26 @@ namespace NovgorodBot.Messengers.Yandex
             }
 
             return response;
+        }
+
+        public override async Task<OutputModel> ProcessIncomingAsync(InputModel input)
+        {
+            OutputModel result;
+
+            try
+            {
+                result = await base.ProcessIncomingAsync(input);
+            }
+            catch (Exception e)
+            {
+                _log.Error(e);
+
+                var response = new InternalModels.Response { Text = ErrorAnswer };
+
+                result = await AfterAsync(input, response);
+            }
+
+            return result;
         }
 
         protected override async Task<OutputModel> AfterAsync(InputModel input, InternalModels.Response response)

@@ -5,6 +5,6 @@ namespace NovgorodBot.Services
 {
     public interface ISkillsService
     {
-        ICollection<Skill> GetSkills(int areaId);
+        ICollection<Skill> GetSkills(int? areaId);
     }
 }
