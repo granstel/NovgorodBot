@@ -4,6 +4,7 @@ using NovgorodBot.Models.Internal;
 using Yandex.Dialogs.Models;
 using Yandex.Dialogs.Models.Input;
 using NovgorodBot.Models;
+using Yandex.Dialogs.Models.Buttons;
 using InternalModels = NovgorodBot.Models.Internal;
 using YandexModels = Yandex.Dialogs.Models;
 
@@ -44,7 +45,7 @@ namespace NovgorodBot.Messengers.Yandex
                 .ForMember(d => d.Tts, m => m.MapFrom(s => s.AlternativeText.Replace(Environment.NewLine, "\n")))
                 .ForMember(d => d.EndSession, m => m.MapFrom(s => s.Finished))
                 .ForMember(d => d.Card, m => m.Ignore())
-                .ForMember(d => d.Buttons, m => m.Ignore())
+                .ForMember(d => d.Buttons, m => m.MapFrom(s => s.Buttons))
                 .ForMember(d => d.Directives, m => m.Ignore());
 
             CreateMap<InternalModels.Response, Session>()
@@ -62,6 +63,12 @@ namespace NovgorodBot.Messengers.Yandex
                 .ForMember(d => d.UserStateUpdate, m => m.Ignore())
                 .ForMember(d => d.SessionState, m => m.Ignore())
                 .ForMember(d => d.ApplicationState, m => m.Ignore());
+
+            CreateMap<Models.Button, ResponseButton>()
+                .ForMember(d => d.Title, m => m.MapFrom(s => s.Text))
+                .ForMember(d => d.Url, m => m.MapFrom(s => !string.IsNullOrEmpty(s.Url) ? s.Url : null))
+                .ForMember(d => d.Hide, m => m.MapFrom(s => s.QuickReply))
+                .ForMember(d => d.Payload, m => m.Ignore());
         }
     }
 }

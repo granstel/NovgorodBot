@@ -26,16 +26,16 @@ namespace NovgorodBot.Services
         {
             //TODO: processing commands, invoking external services, and other cool asynchronous staff to generate response
 
-            Response response = new Response();
+            var response = new Response();
 
             if (request.Geolocation != null)
             {
                 response = await GetResponseByLocationAsync(request);
-            }
 
-            if (response != null)
-            {
-                return response;
+                if (response != null)
+                {
+                    return response;
+                }
             }
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
