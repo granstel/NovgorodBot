@@ -16,6 +16,8 @@ namespace NovgorodBot.Models.Internal
 
         public bool? NewSession { get; set; }
 
+        public bool IsOldUser { get; set; }
+
         public Geolocation Geolocation { get; set; }
     }
 }

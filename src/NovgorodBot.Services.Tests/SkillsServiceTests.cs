@@ -28,7 +28,7 @@ namespace NovgorodBot.Services.Tests
         {
             var areaId = 0;
 
-            var result = _target.GetSkillsNames(areaId);
+            var result = _target.GetSkills(areaId);
 
             Assert.NotNull(result, "Список навыков по области = null");
             Assert.IsNotEmpty(result, "Список навыков по области пуст");

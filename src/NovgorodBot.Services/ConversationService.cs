@@ -34,6 +34,11 @@ namespace NovgorodBot.Services
 
                 if (response != null)
                 {
+                    if (request.NewSession == true && request.IsOldUser)
+                    {
+                        response.Text = $"С возвращением! {response.Text}";
+                    }
+
                     return response;
                 }
             }
@@ -46,6 +51,12 @@ namespace NovgorodBot.Services
             }
 
             response.Text = dialog.Response;
+
+            if (request.NewSession == true && request.IsOldUser)
+            {
+                response.Text = $"С возвращением! {response.Text}";
+            }
+
             response.Finished = dialog.EndConversation;
 
             return response;
@@ -54,7 +65,7 @@ namespace NovgorodBot.Services
         private async Task<Response> GetResponseByLocationAsync(Request request)
         {
             Response response;
-            
+
             var area = _geolocationService.GetArea(request.Geolocation);
 
             if (area == null)
@@ -62,7 +73,7 @@ namespace NovgorodBot.Services
                 response = new Response
                 {
                     Text = "Чем тебе хотелось бы заняться?",
-                    Buttons = new []
+                    Buttons = new[]
                     {
                         new Button { Text = "Экскурсии"},
                         new Button { Text = "Квесты"},
@@ -72,17 +83,19 @@ namespace NovgorodBot.Services
 
                 return response;
             }
-            
+
             var parameters = new Dictionary<string, string>
             {
-                { "areaName", area?.Name}
+                { "areaName", area.Name}
             };
+
+            request.Text = "RelevantToLocation";
 
             var dialog = await _dialogflowService.GetResponseAsync(request, parameters);
 
-            var names = _skillsService.GetSkillsNames(area.Id);
+            var names = _skillsService.GetSkills(area.Id);
 
-            var buttons = names.Select(n => new Button {Text = n}).ToArray();
+            var buttons = names.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
 
             response = new Response
             {

@@ -16,14 +16,19 @@ namespace NovgorodBot.Services
     {
         private const string StartCommand = "/start";
         private const string ErrorCommand = "/error";
+        private const string RelevantToLocationCommand = "RelevantToLocation";
+        private const string IsOldUserCommand = "ISOLDUSER";
 
         private const string WelcomeEventName = "Welcome";
         private const string ErrorEventName = "Error";
+        private const string RelevantToLocationEventName = "RelevantToLocation";
+        private const string IsOldUserEventName = "RelevantToLocation";
 
         private readonly Dictionary<string, string> _commandDictionary = new Dictionary<string, string>
         {
             {StartCommand, WelcomeEventName},
-            {ErrorCommand, ErrorEventName}
+            {ErrorCommand, ErrorEventName},
+            {RelevantToLocationCommand, RelevantToLocationEventName}
         };
 
         private readonly Logger _log = LogManager.GetLogger(nameof(DialogflowService));
@@ -153,7 +158,7 @@ namespace NovgorodBot.Services
             EventInput result;
 
             // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
-            if (request.NewSession == true || string.IsNullOrEmpty(request.Text))
+            if (request.NewSession == true && string.IsNullOrEmpty(request.Text))
             {
                 result = GetEvent(WelcomeEventName);
             }

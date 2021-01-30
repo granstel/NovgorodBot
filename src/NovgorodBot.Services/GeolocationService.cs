@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NovgorodBot.Models;
 
@@ -6,9 +7,10 @@ namespace NovgorodBot.Services
 {
     public class GeolocationService : IGeolocationService
     {
+        static Random rnd = new Random();
+
         private static readonly List<GeoArea> Areas = new List<GeoArea>
         {
-            {
                 new GeoArea
                 {
                     Id = 0,
@@ -17,8 +19,43 @@ namespace NovgorodBot.Services
                     MaxLon = 31.429352f,
                     MinLat = 58.470034f,
                     MaxLat = 58.653285f
+                },
+                new GeoArea
+                {
+                    Id = 0,
+                    Name = "Юрьев монастырь",
+                    MinLon = 31.187262f,
+                    MaxLon = 31.429352f,
+                    MinLat = 58.470034f,
+                    MaxLat = 58.653285f
+                },
+                new GeoArea
+                {
+                    Id = 0,
+                    Name = "Церковь Николы на Липне",
+                    MinLon = 31.187262f,
+                    MaxLon = 31.429352f,
+                    MinLat = 58.470034f,
+                    MaxLat = 58.653285f
+                },
+                new GeoArea
+                {
+                    Id = 0,
+                    Name = "Софийский собор",
+                    MinLon = 31.187262f,
+                    MaxLon = 31.429352f,
+                    MinLat = 58.470034f,
+                    MaxLat = 58.653285f
+                },
+                new GeoArea
+                {
+                    Id = 0,
+                    Name = "Новгородский кремль",
+                    MinLon = 31.187262f,
+                    MaxLon = 31.429352f,
+                    MinLat = 58.470034f,
+                    MaxLat = 58.653285f
                 }
-            }
         };
         
         public GeoArea GetArea(Geolocation location)
@@ -28,9 +65,10 @@ namespace NovgorodBot.Services
                 return null;
             }
 
-            var area = Areas.FirstOrDefault(a => a.IsCovers(location));
+            //var area = Areas.FirstOrDefault(a => a.IsCovers(location));
+            var item = rnd.Next(Areas.Count);
 
-            return area;
+            return Areas[item];
         }
     }
 }
