@@ -19,6 +19,7 @@ namespace NovgorodBot.Services
         private const string RelevantToLocationCommand = "RelevantToLocation";
         private const string IsOldUserCommand = "ISOLDUSER";
         private const string StarCommand = "Geolocation.Rejected";
+        private const string StarCommand1 = "SimpleUtterance";
 
         private const string WelcomeEventName = "Welcome";
         private const string ErrorEventName = "Error";
@@ -32,7 +33,8 @@ namespace NovgorodBot.Services
             {ErrorCommand, ErrorEventName},
             {RelevantToLocationCommand, RelevantToLocationEventName},
             {IsOldUserCommand, IsOldUserEventName},
-            {StarCommand, StartEventName}
+            {StarCommand, StartEventName},
+            {StarCommand1, WelcomeEventName}
         };
 
         private readonly Logger _log = LogManager.GetLogger(nameof(DialogflowService));
