@@ -16,25 +16,33 @@ namespace NovgorodBot.Services
     {
         private const string StartCommand = "/start";
         private const string ErrorCommand = "/error";
+
         private const string RelevantToLocationCommand = "RelevantToLocation";
+        private const string GeolocationAllowedCommand = "Geolocation.Allowed";
+
+        private const string GeolocationRejectedCommand = "Geolocation.Rejected";
         private const string IsOldUserCommand = "ISOLDUSER";
-        private const string StarCommand = "Geolocation.Rejected";
-        private const string StarCommand1 = "SimpleUtterance";
+
+        private const string SimpleUtteranceCommand = "SimpleUtterance";
 
         private const string WelcomeEventName = "Welcome";
         private const string ErrorEventName = "Error";
         private const string RelevantToLocationEventName = "RelevantToLocation";
-        private const string IsOldUserEventName = "EasyWelcomeWithoutGeolocation";
+        private const string EasyWelcomeEventName = "EasyWelcomeWithoutGeolocation";
         private const string StartEventName = "Start";
 
         private readonly Dictionary<string, string> _commandDictionary = new Dictionary<string, string>
         {
             {StartCommand, WelcomeEventName},
             {ErrorCommand, ErrorEventName},
+
             {RelevantToLocationCommand, RelevantToLocationEventName},
-            {IsOldUserCommand, IsOldUserEventName},
-            {StarCommand, StartEventName},
-            {StarCommand1, WelcomeEventName}
+            {GeolocationAllowedCommand, RelevantToLocationEventName},
+
+            {GeolocationRejectedCommand, StartEventName},
+
+            {IsOldUserCommand, EasyWelcomeEventName},
+            {SimpleUtteranceCommand, WelcomeEventName}
         };
 
         private readonly Logger _log = LogManager.GetLogger(nameof(DialogflowService));

@@ -30,11 +30,11 @@ namespace NovgorodBot.Services
 
             var response = new Response();
 
-            if (request.Geolocation != null && request.NewSession == true)
+            if (request.Geolocation != null)
             {
                 response = await GetResponseByLocationAsync(request);
 
-                if (request.IsOldUser)
+                if (request.NewSession == true && request.IsOldUser)
                 {
                     response.Text = $"С возвращением! {response.Text}";
                 }
