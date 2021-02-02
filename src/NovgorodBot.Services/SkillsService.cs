@@ -16,7 +16,7 @@ namespace NovgorodBot.Services
             },
             new Skill
             {
-                Name = "Сочинить занимательную историю",
+                Name = "Послушать занимательную историю",
                 Link = "https://dialogs.yandex.ru/store/skills/12ef2083-sochinyal/activate?deeplink=true",
                 Areas = new [] { 0 }
             }
