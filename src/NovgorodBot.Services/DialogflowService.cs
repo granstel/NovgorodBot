@@ -21,6 +21,8 @@ namespace NovgorodBot.Services
         private const string GeolocationAllowedCommand = "Geolocation.Allowed";
 
         private const string GeolocationRejectedCommand = "Geolocation.Rejected";
+        private const string GoToStartCommand = "Start";
+
         private const string IsOldUserCommand = "ISOLDUSER";
 
         private const string SimpleUtteranceCommand = "SimpleUtterance";
@@ -40,6 +42,7 @@ namespace NovgorodBot.Services
             {GeolocationAllowedCommand, RelevantToLocationEventName},
 
             {GeolocationRejectedCommand, StartEventName},
+            {GoToStartCommand, StartEventName},
 
             {IsOldUserCommand, EasyWelcomeEventName},
             {SimpleUtteranceCommand, WelcomeEventName}

@@ -65,10 +65,11 @@ namespace NovgorodBot.Services
                 return null;
             }
 
-            //var area = Areas.FirstOrDefault(a => a.IsCovers(location));
-            var item = Rnd.Next(Areas.Count);
+            var area = Areas.FirstOrDefault(a => a.IsCovers(location));
+            return area;
+            //var item = Rnd.Next(Areas.Count);
 
-            return Areas[item];
+            //return Areas[item];
         }
     }
 }
