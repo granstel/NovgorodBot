@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
 using NovgorodBot.Models;
 using NovgorodBot.Models.Internal;
+using Enum = System.Enum;
 
 namespace NovgorodBot.Services
 {
@@ -28,19 +30,16 @@ namespace NovgorodBot.Services
 
             var response = new Response();
 
-            if (request.Geolocation != null)
+            if (request.Geolocation != null && request.NewSession == true)
             {
                 response = await GetResponseByLocationAsync(request);
 
-                if (response != null)
+                if (request.IsOldUser)
                 {
-                    if (request.NewSession == true && request.IsOldUser)
-                    {
-                        response.Text = $"С возвращением! {response.Text}";
-                    }
-
-                    return response;
+                    response.Text = $"С возвращением! {response.Text}";
                 }
+
+                return response;
             }
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
@@ -52,11 +51,27 @@ namespace NovgorodBot.Services
 
             if (dialog?.Action?.Equals("GETSKILLSBYCATEGORIES", System.StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                var buttons = GetSkillsButtons(null);
+                var categories = new List<ActionsCategories>();
+
+                if (dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames))
+                {
+                    foreach (var name in categoriesNames)
+                    {
+                        if (!Enum.TryParse(name, true, out ActionsCategories category))
+                        {
+                            continue;
+                        }
+
+                        categories.Add(category);
+                    }
+
+                }
+
+                var buttons = GetSkillsButtons(categories);
                 response.Buttons = buttons;
             }
 
-            if(dialog?.Buttons?.Any() == true)
+            if (dialog?.Buttons?.Any() == true)
             {
                 response.Buttons = dialog.Buttons;
             }
@@ -111,6 +126,15 @@ namespace NovgorodBot.Services
         private Button[] GetSkillsButtons(GeoArea area)
         {
             var skills = _skillsService.GetSkills(area?.Id);
+
+            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
+
+            return buttons;
+        }
+
+        private Button[] GetSkillsButtons(ICollection<ActionsCategories> categories)
+        {
+            var skills = _skillsService.GetSkills(categories);
 
             var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
 

@@ -4,7 +4,7 @@ namespace NovgorodBot.Models.Internal
 {
     public class Dialog
     {
-        public IDictionary<string, string> Parameters { get; set; }
+        public IDictionary<string, string[]> Parameters { get; set; }
 
         public bool EndConversation { get; set; }
 

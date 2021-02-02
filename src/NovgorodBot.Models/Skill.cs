@@ -9,5 +9,7 @@ namespace NovgorodBot.Models
         public string Link { get; set; }
 
         public ICollection<int> Areas { get; set; }
+
+        public ICollection<ActionsCategories> Categories { get; set; }
     }
 }

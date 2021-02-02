@@ -10,15 +10,17 @@ namespace NovgorodBot.Services
         {
             new Skill
             {
-                Name = "Купить сувениры",
+                Name = "\"Cувениры Великого Новгорода\"",
                 Link = "https://dialogs.yandex.ru/store/skills/cd309398-suveniry-velikogo-novgoroda/activate?deeplink=true",
-                Areas = new [] { 0 }
+                Areas = new [] { 0 },
+                Categories = new[] {ActionsCategories.Souvenirs}
             },
             new Skill
             {
-                Name = "Послушать занимательную историю",
+                Name = "\"Занимательная история Великого Новгорода\"",
                 Link = "https://dialogs.yandex.ru/store/skills/12ef2083-sochinyal/activate?deeplink=true",
-                Areas = new [] { 0 }
+                Areas = new [] { 0 },
+                Categories = new[] {ActionsCategories.Quest}
             }
         };
 
@@ -31,6 +33,20 @@ namespace NovgorodBot.Services
 
             var names = Skills
                 .Where(s => s.Areas.Contains(areaId.GetValueOrDefault()))
+                .ToList();
+
+            return names;
+        }
+
+        public ICollection<Skill> GetSkills(ICollection<ActionsCategories> categories)
+        {
+            if (categories == null)
+            {
+                return Skills;
+            }
+
+            var names = Skills
+                .Where(s => s.Categories.Any(categories.Contains))
                 .ToList();
 
             return names;

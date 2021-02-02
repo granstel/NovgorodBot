@@ -26,9 +26,9 @@ namespace NovgorodBot.Services.Mapping
                 });
         }
 
-        private IDictionary<string, string> GetParameters(QueryResult queryResult)
+        private IDictionary<string, string[]> GetParameters(QueryResult queryResult)
         {
-            var dictionary = new Dictionary<string, string>();
+            var dictionary = new Dictionary<string, string[]>();
 
             var fields = queryResult?.Parameters.Fields;
 
@@ -41,7 +41,11 @@ namespace NovgorodBot.Services.Mapping
             {
                 if (field.Value.KindCase == Value.KindOneofCase.StringValue)
                 {
-                    dictionary.Add(field.Key, field.Value.StringValue);
+                    dictionary.Add(field.Key, new[] { field.Value.StringValue });
+                }
+                else if (field.Value.KindCase == Value.KindOneofCase.ListValue)
+                {
+                    dictionary.Add(field.Key, field.Value.ListValue.Values.Select(v => v.StringValue).Distinct().ToArray());
                 }
                 else if (field.Value.KindCase == Value.KindOneofCase.StructValue)
                 {
@@ -55,9 +59,7 @@ namespace NovgorodBot.Services.Mapping
                         }
                     }
 
-                    var stringValue = string.Join("/", stringValues);
-
-                    dictionary.Add(field.Key, stringValue);
+                    dictionary.Add(field.Key, stringValues.ToArray());
                 }
             }
 
