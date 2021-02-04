@@ -19,5 +19,7 @@ namespace NovgorodBot.Models.Internal
         public bool IsOldUser { get; set; }
 
         public Geolocation Geolocation { get; set; }
+
+        public string RequestType { get; set; }
     }
 }

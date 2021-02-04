@@ -33,11 +33,6 @@ namespace NovgorodBot.Messengers.Yandex
 
         protected override InternalModels.Request Before(InputModel input)
         {
-            if (string.IsNullOrEmpty(input.Request.Command) && string.IsNullOrEmpty(input.Request.OriginalUtterance))
-            {
-                input.Request.OriginalUtterance = input.Request.Type;
-            }
-
             var request = base.Before(input);
 
             _cache.TryGet($"{IsOldUserKey}:{input.Session.UserId}", out bool isOldUser);

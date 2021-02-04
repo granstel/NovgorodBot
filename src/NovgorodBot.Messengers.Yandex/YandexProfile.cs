@@ -25,7 +25,8 @@ namespace NovgorodBot.Messengers.Yandex
                 .ForMember(d => d.NewSession, m => m.MapFrom((s, d) => s.Session?.New))
                 .ForMember(d => d.Language, m => m.MapFrom((s, d) => s.Meta?.Locale))
                 .ForMember(d => d.Geolocation, m => m.MapFrom((s, d) => s.Session?.Location))
-                .ForMember(d => d.Source, m => m.MapFrom(s => Source.Yandex));
+                .ForMember(d => d.Source, m => m.MapFrom(s => Source.Yandex))
+                .ForMember(d => d.RequestType, m => m.MapFrom(s => s.Request.Type));
 
             CreateMap<Location, Geolocation>()
                 .ForMember(d => d.Lat, m => m.MapFrom(s => s.Lat))

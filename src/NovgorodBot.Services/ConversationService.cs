@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
@@ -30,16 +31,16 @@ namespace NovgorodBot.Services
 
             var response = new Response();
 
-            if (request.Geolocation != null)
+            if (request.Geolocation != null && string.IsNullOrEmpty(request.Text))
             {
                 response = await GetResponseByLocationAsync(request);
 
-                if (request.NewSession == true && request.IsOldUser)
-                {
-                    response.Text = $"С возвращением! {response.Text}";
-                }
-
                 return response;
+            }
+
+            if (string.IsNullOrEmpty(request.Text))
+            {
+                request.Text = request.RequestType;
             }
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
@@ -49,7 +50,7 @@ namespace NovgorodBot.Services
                 response.RequestGeolocation = true;
             }
 
-            if (dialog?.Action?.Equals("GETSKILLSBYCATEGORIES", System.StringComparison.InvariantCultureIgnoreCase) == true)
+            if (dialog?.Action?.Equals("SHOWSKILLSBYCATEGORIES", System.StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 var categories = new List<ActionsCategories>();
 
@@ -119,6 +120,11 @@ namespace NovgorodBot.Services
                 Text = dialog.Response,
                 Buttons = buttons
             };
+
+            if (request.NewSession == true && request.IsOldUser)
+            {
+                response.Text = $"С возвращением! {response.Text}";
+            }
 
             return await Task.FromResult(response);
         }
