@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NovgorodBot.Models;
 
@@ -6,6 +7,8 @@ namespace NovgorodBot.Services
 {
     public class SkillsService : ISkillsService
     {
+        private static readonly Random Rnd = new Random();
+
         private static readonly List<Skill> Skills = new List<Skill>
         {
             new Skill
@@ -31,11 +34,9 @@ namespace NovgorodBot.Services
                 return Skills;
             }
 
-            var names = Skills
-                .Where(s => s.Areas.Contains(areaId.GetValueOrDefault()))
-                .ToList();
+            var skills = GetSkills(s => s.Areas.Contains(areaId.GetValueOrDefault()));
 
-            return names;
+            return skills;
         }
 
         public ICollection<Skill> GetSkills(ICollection<ActionsCategories> categories)
@@ -45,11 +46,25 @@ namespace NovgorodBot.Services
                 return Skills;
             }
 
-            var names = Skills
-                .Where(s => s.Categories.Any(categories.Contains))
+            var skills = GetSkills(s => s.Categories.Any(categories.Contains));
+
+            return skills;
+        }
+
+        private ICollection<Skill> GetSkills(Func<Skill, bool> predicate)
+        {
+            var skills = Skills
+                .Where(predicate)
                 .ToList();
 
-            return names;
+            if (skills.Any())
+            {
+                return skills;
+            }
+
+            skills = Skills.OrderBy(x => Rnd.Next()).Take(3).ToList();
+
+            return skills;
         }
     }
 }
