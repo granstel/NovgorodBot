@@ -1,0 +1,63 @@
+{
+  "id": "933a1e33-c3ea-4873-a9b2-0eb8a706c0e5",
+  "name": "RelevantToLocation",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "OFFER",
+          "lifespan": 5
+        },
+        {
+          "name": "RelevantToLocation-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "541e460f-6e50-4fea-8600-a29fd7aa2602",
+          "name": "areaName",
+          "required": false,
+          "dataType": "@sys.any",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "О, я вижу, рядом с тобой есть $areaName.original. Вот эти навыки помогут тебе отлично провести здесь время. Чтобы начать, нажми на один из них. Если станет скучно - возвращайся ко мне, и я подскажу что-нибудь ещё",
+            "Смотри, рядом с тобой $areaName. С помощью этих навыков ты найдёшь, чем тут заняться, просто нажми на один из них. Если станет скучно - возвращайся, и я подскажу что-нибудь ещё"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "RelevantToLocation"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

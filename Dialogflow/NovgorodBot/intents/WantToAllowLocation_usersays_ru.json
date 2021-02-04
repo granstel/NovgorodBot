@@ -1,0 +1,133 @@
+[
+  {
+    "id": "af90448d-4402-4bb1-b224-f8436b287c3a",
+    "data": [
+      {
+        "text": "хочу дать тебе свою геолокацию",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "82695540-70e6-4ac1-8b8f-ba391f721577",
+    "data": [
+      {
+        "text": "дать геолокацию",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "b73a3d4a-8e52-4a7a-92bf-ee0e1c6008d9",
+    "data": [
+      {
+        "text": "хочу дать геолокацию",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "a4c20957-3863-462d-b5e1-ca0e1ad31304",
+    "data": [
+      {
+        "text": "алиса",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " я хочу тебе дать свою геолокацию",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "5030a606-7deb-4c65-a6c6-2ea650bf83b7",
+    "data": [
+      {
+        "text": "посмотри где я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "da6e0683-47a0-4162-b818-47947e27199c",
+    "data": [
+      {
+        "text": "показать где я нахожусь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "0328953d-3130-4c5b-a99c-2db1ceba4630",
+    "data": [
+      {
+        "text": "предоставить местоположение",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "fcbc28a8-6aed-4e7a-995b-51caeae84c79",
+    "data": [
+      {
+        "text": "предоставить локацию",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "39a11b9d-ab24-400d-964d-849b11205912",
+    "data": [
+      {
+        "text": "А если я дам тебе ",
+        "userDefined": false
+      },
+      {
+        "text": "свою",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " локацию",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

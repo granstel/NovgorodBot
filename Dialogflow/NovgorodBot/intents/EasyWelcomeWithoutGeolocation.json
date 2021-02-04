@@ -2,19 +2,12 @@
   "id": "9a87b416-1515-4fdd-85cc-2c2a708744c6",
   "name": "EasyWelcomeWithoutGeolocation",
   "auto": true,
-  "contexts": [
-    "EasyWelcomeWithoutGeolocation"
-  ],
+  "contexts": [],
   "responses": [
     {
       "resetContexts": false,
       "action": "REQUESTLOCATION",
-      "affectedContexts": [
-        {
-          "name": "EasyWelcomeWithoutGeolocation",
-          "lifespan": 5
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [],
       "messages": [
         {

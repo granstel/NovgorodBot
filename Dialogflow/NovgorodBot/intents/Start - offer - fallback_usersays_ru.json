@@ -1,0 +1,113 @@
+[
+  {
+    "id": "5b0b5e68-46e1-4c00-ad5e-3e7849eb5e6e",
+    "data": [
+      {
+        "text": "перейти в навык занимательные истории",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "8df63e57-0c5d-40ed-bfc7-63ec3865df37",
+    "data": [
+      {
+        "text": "запусти ",
+        "userDefined": false
+      },
+      {
+        "text": "первый",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " навык",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "e45d0bf0-c3bd-4439-a4ca-3ba382ac8b6d",
+    "data": [
+      {
+        "text": "перейди в навык",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "f83ea347-e054-444a-b5ba-31a9cb01fb04",
+    "data": [
+      {
+        "text": "давай тогда ",
+        "userDefined": false
+      },
+      {
+        "text": "второй",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "e5b9bdc2-945e-49e8-b84d-dda1c941fe81",
+    "data": [
+      {
+        "text": "давай ",
+        "userDefined": false
+      },
+      {
+        "text": "первый",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "0ca542f9-d9b5-4773-84fb-196256b9cbf0",
+    "data": [
+      {
+        "text": "запусти",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "bb9c2346-09e7-43af-8931-03be58191531",
+    "data": [
+      {
+        "text": "перейди в",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

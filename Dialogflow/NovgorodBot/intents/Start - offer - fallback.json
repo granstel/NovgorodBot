@@ -1,0 +1,53 @@
+{
+  "id": "e6b4993f-ecbb-4f90-bd51-d6a6c2e3e841",
+  "name": "Start - offer - fallback",
+  "auto": true,
+  "contexts": [
+    "OFFER"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "SHOWSKILLSBYCATEGORIES",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "3cff7801-18ea-41b2-8289-9bfed45df599",
+          "name": "ActionsCategories",
+          "required": false,
+          "dataType": "@ActionsCategories",
+          "value": "#OFFER.ActionsCategories",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Прости, но тебе надо нажать пальцем на одну из этих кнопок, чтобы перейти в другой навык",
+            "Извини, но тебе придётся нажать пальцем на один из вариантов, чтобы перейти в другой навык"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

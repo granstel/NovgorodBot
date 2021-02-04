@@ -1,0 +1,298 @@
+[
+  {
+    "id": "c4873f52-add8-46c8-a96d-8dad74928f3f",
+    "data": [
+      {
+        "text": "я скажу какую нибудь чушь на придумай я хочу попасть на ",
+        "userDefined": false
+      },
+      {
+        "text": "экскурсию",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "02062168-b285-4baf-a7fa-890facbbeadc",
+    "data": [
+      {
+        "text": "хочу на ",
+        "userDefined": false
+      },
+      {
+        "text": "экскурсию",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "9a03c718-b9d2-47e1-888b-06ef6c1a5cbc",
+    "data": [
+      {
+        "text": "хочу куда на экскурсию сходить и купить ",
+        "userDefined": false
+      },
+      {
+        "text": "виниры",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d21b32c0-7cf8-4c1d-ac2f-c8667f0ffeb1",
+    "data": [
+      {
+        "text": "а я хотел бы вообще то сходить на ",
+        "userDefined": false
+      },
+      {
+        "text": "квест",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d408deec-db63-42aa-b4f0-c513b9e4a6c2",
+    "data": [
+      {
+        "text": "а про ",
+        "userDefined": false
+      },
+      {
+        "text": "сувенир",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": " что нибудь есть",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "260b853b-0e12-4a77-b48c-3462799f20c0",
+    "data": [
+      {
+        "text": "хочу купить ",
+        "userDefined": false
+      },
+      {
+        "text": "виниры",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "bb8a99cb-b467-4df3-8e68-515a983c5fb3",
+    "data": [
+      {
+        "text": "сперва хочу на ",
+        "userDefined": false
+      },
+      {
+        "text": "экскурсию",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": ", потом в ",
+        "userDefined": false
+      },
+      {
+        "text": "бар",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": ", ну и ",
+        "userDefined": false
+      },
+      {
+        "text": "купить",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": " что-нибудь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "71a9419b-038d-423e-b9f3-e1ffb363f7bb",
+    "data": [
+      {
+        "text": "купить сувенир",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "74a8d503-48b6-442e-83ba-93dd311d57c2",
+    "data": [
+      {
+        "text": "сувенир",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "dc0668e5-e6b8-4a18-aeec-77fea4fe00c5",
+    "data": [
+      {
+        "text": "сувениры",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "45c3a5f3-5e5a-422a-8f76-9c98b1d51abc",
+    "data": [
+      {
+        "text": "Квест",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "58042c13-c426-4910-989d-42a34da275b2",
+    "data": [
+      {
+        "text": "Квесты",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "228f25b7-eb55-4a95-b22f-7b1d2a5cfc20",
+    "data": [
+      {
+        "text": "Бары",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "1f60a858-720b-480c-9079-414451d89078",
+    "data": [
+      {
+        "text": "Истории",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "bf323331-a9de-47a9-8149-bbef0d1d2111",
+    "data": [
+      {
+        "text": "История",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d564699d-1706-4667-8868-c31721a1e927",
+    "data": [
+      {
+        "text": "Экскурсии",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

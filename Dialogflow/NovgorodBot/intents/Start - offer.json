@@ -1,0 +1,60 @@
+{
+  "id": "5b1a2e6a-bf22-4dbb-8314-ad98ea8d85ef",
+  "name": "Start - offer",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "SHOWSKILLSBYCATEGORIES",
+      "affectedContexts": [
+        {
+          "name": "OFFER",
+          "lifespan": 5
+        },
+        {
+          "name": "Start-offer-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "a2c0eee1-1b1b-4185-99f5-c00b19e58ab0",
+          "name": "ActionsCategories",
+          "required": false,
+          "dataType": "@ActionsCategories",
+          "value": "$ActionsCategories",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Вот какие навыки могу тебе предложить. Нажми один из вариантов ниже, чтобы начать. Если станет скучно - возвращайся ко мне, и я подскажу что-нибудь ещё",
+            "В таком случае, выбери один из этих навыков. Просто нажми на один из вариантов, чтобы перейти в него. Если будет скучно - возвращайся, подскажу что-нибудь ещё"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
