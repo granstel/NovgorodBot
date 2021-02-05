@@ -14,16 +14,16 @@ namespace NovgorodBot.Services
             new Skill
             {
                 Name = "\"Cувениры Великого Новгорода\"",
-                Link = "https://dialogs.yandex.ru/store/skills/cd309398-suveniry-velikogo-novgoroda/activate?deeplink=true",
+                Url = "https://dialogs.yandex.ru/store/skills/cd309398-suveniry-velikogo-novgoroda/activate?deeplink=true",
                 Areas = new [] { 0 },
-                Categories = new[] {ActionsCategories.Souvenirs}
+                Categories = new[] { "SOUVENIR" }
             },
             new Skill
             {
                 Name = "\"Занимательная история Великого Новгорода\"",
-                Link = "https://dialogs.yandex.ru/store/skills/12ef2083-sochinyal/activate?deeplink=true",
+                Url = "https://dialogs.yandex.ru/store/skills/12ef2083-sochinyal/activate?deeplink=true",
                 Areas = new [] { 0 },
-                Categories = new[] {ActionsCategories.Quest}
+                Categories = new[] { "QUEST" }
             }
         };
 
@@ -39,14 +39,16 @@ namespace NovgorodBot.Services
             return skills;
         }
 
-        public ICollection<Skill> GetSkills(ICollection<ActionsCategories> categories)
+        public ICollection<Skill> GetSkills(ICollection<string> categories)
         {
             if (categories == null)
             {
                 return Skills;
             }
 
-            var skills = GetSkills(s => s.Categories.Any(categories.Contains));
+            categories = categories.Select(c => c.ToUpperInvariant()).ToList();
+
+            var skills = GetSkills(s => s.Categories.Any(c => categories.Contains(c.ToUpper())));
 
             return skills;
         }
@@ -62,7 +64,7 @@ namespace NovgorodBot.Services
                 return skills;
             }
 
-            skills = Skills.OrderBy(x => Rnd.Next()).Take(3).ToList();
+            skills = Skills.Where(s => !s.IsLocationBinded).OrderBy(x => Rnd.Next()).Take(3).ToList();
 
             return skills;
         }

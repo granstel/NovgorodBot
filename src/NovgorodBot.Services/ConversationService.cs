@@ -52,27 +52,16 @@ namespace NovgorodBot.Services
 
             if (dialog?.Action?.Equals("SHOWSKILLSBYCATEGORIES", System.StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                var categories = new List<ActionsCategories>();
+                var categories = new List<string>();
 
                 if (dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames))
                 {
-                    foreach (var name in categoriesNames)
-                    {
-                        if (!Enum.TryParse(name, true, out ActionsCategories category))
-                        {
-                            continue;
-                        }
-
-                        categories.Add(category);
-                    }
-
+                    var buttons = GetSkillsButtons(categoriesNames);
+                    response.Buttons = buttons;
                 }
-
-                var buttons = GetSkillsButtons(categories);
-                response.Buttons = buttons;
             }
 
-            if (dialog?.Buttons?.Any() == true)
+            if (dialog?.Buttons?.Any() == true && !response.Buttons.Any())
             {
                 response.Buttons = dialog.Buttons;
             }
@@ -133,16 +122,16 @@ namespace NovgorodBot.Services
         {
             var skills = _skillsService.GetSkills(area?.Id);
 
-            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
+            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
 
             return buttons;
         }
 
-        private Button[] GetSkillsButtons(ICollection<ActionsCategories> categories)
+        private Button[] GetSkillsButtons(ICollection<string> categories)
         {
             var skills = _skillsService.GetSkills(categories);
 
-            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Link }).ToArray();
+            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
 
             return buttons;
         }

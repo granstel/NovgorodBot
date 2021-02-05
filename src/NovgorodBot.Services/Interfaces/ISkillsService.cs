@@ -7,6 +7,6 @@ namespace NovgorodBot.Services
     {
         ICollection<Skill> GetSkills(int? areaId);
         
-        ICollection<Skill> GetSkills(ICollection<ActionsCategories> categories);
+        ICollection<Skill> GetSkills(ICollection<string> categories);
     }
 }

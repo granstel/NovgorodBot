@@ -6,10 +6,15 @@ namespace NovgorodBot.Models
     {
         public string Name { get; set; }
         
-        public string Link { get; set; }
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Имеет отношение к конкретной локации
+        /// </summary>
+        public bool IsLocationBinded { get; set; }
 
         public ICollection<int> Areas { get; set; }
 
-        public ICollection<ActionsCategories> Categories { get; set; }
+        public ICollection<string> Categories { get; set; }
     }
 }
