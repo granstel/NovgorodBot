@@ -45,18 +45,31 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
 
-            if (dialog?.Action?.Equals("REQUESTLOCATION", System.StringComparison.InvariantCultureIgnoreCase) == true)
+            if (dialog?.Action?.Equals("REQUESTLOCATION", StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 response.RequestGeolocation = true;
             }
 
-            if (dialog?.Action?.Equals("SHOWSKILLSBYCATEGORIES", System.StringComparison.InvariantCultureIgnoreCase) == true)
+            if (dialog?.Action?.Equals("SHOWSKILLSBYCATEGORIES", StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                var categories = new List<string>();
-
                 if (dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames))
                 {
                     var buttons = GetSkillsButtons(categoriesNames);
+                    response.Buttons = buttons;
+                }
+            }
+
+            if (dialog?.Action?.Equals("SHOWRELEVANTSKILLS", StringComparison.InvariantCultureIgnoreCase) == true)
+            {
+                if (dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames) && categoriesNames.Any())
+                {
+                    var buttons = GetSkillsButtons(categoriesNames);
+                    response.Buttons = buttons;
+                }
+                else
+                {
+                    var area = _geolocationService.GetArea(request.Geolocation);
+                    var buttons = GetSkillsButtons(area);
                     response.Buttons = buttons;
                 }
             }

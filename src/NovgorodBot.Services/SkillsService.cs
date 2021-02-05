@@ -24,12 +24,7 @@ namespace NovgorodBot.Services
         {
             _cache.TryGet(CacheKey, out ICollection<Skill> skills);
 
-            if (areaId == null)
-            {
-                return skills;
-            }
-
-            skills = FilterSkillsOrDefault(skills, s => s.Areas.Contains(areaId.GetValueOrDefault()));
+            skills = FilterSkillsOrDefault(skills, s => areaId.HasValue && s.Areas.Contains(areaId.GetValueOrDefault()));
 
             return skills;
         }
@@ -38,14 +33,9 @@ namespace NovgorodBot.Services
         {
             _cache.TryGet(CacheKey, out ICollection<Skill> skills);
 
-            if (categories == null)
-            {
-                return skills;
-            }
-
             categories = categories.Select(c => c.ToUpperInvariant()).ToList();
 
-            skills = FilterSkillsOrDefault(skills, s => s.Categories.Any(c => categories.Contains(c.ToUpper())));
+            skills = FilterSkillsOrDefault(skills, s => s.Categories.Any(c => categories?.Any() == true && categories.Contains(c.ToUpper())));
 
             return skills;
         }
