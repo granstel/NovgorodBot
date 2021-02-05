@@ -26,13 +26,12 @@ namespace NovgorodBot.Services
                 return null;
             }
 
-            _cache.TryGet(CacheKey, out ICollection<GeoArea> areas);
+            _cache.TryGet(CacheKey, out IList<GeoArea> areas);
 
-            var area = areas.FirstOrDefault(a => a.IsCovers(location));
-            return area;
-            //var item = Rnd.Next(Areas.Count);
-
-            //return Areas[item];
+            //var area = areas.FirstOrDefault(a => a.IsCovers(location));
+            //return area;
+            var item = Rnd.Next(areas.Count);
+            return areas[item];
         }
     }
 }
