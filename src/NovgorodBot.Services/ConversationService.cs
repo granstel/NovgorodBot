@@ -61,7 +61,7 @@ namespace NovgorodBot.Services
                 }
             }
 
-            if (dialog?.Buttons?.Any() == true && !response.Buttons.Any())
+            if (dialog?.Buttons?.Any() == true && response.Buttons?.Any() != true)
             {
                 response.Buttons = dialog.Buttons;
             }
