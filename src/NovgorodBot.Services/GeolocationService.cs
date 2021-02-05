@@ -1,63 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GranSteL.Helpers.Redis;
 using NovgorodBot.Models;
 
 namespace NovgorodBot.Services
 {
     public class GeolocationService : IGeolocationService
     {
+        private const string CacheKey = "LOCATIONS";
+
         private static readonly Random Rnd = new Random();
 
-        private static readonly List<GeoArea> Areas = new List<GeoArea>
+        private readonly IRedisCacheService _cache;
+
+        public GeolocationService(IRedisCacheService cache)
         {
-                //new GeoArea
-                //{
-                //    Id = 0,
-                //    Name = "Великий Новгород",
-                //    MinLon = 31.187262f,
-                //    MaxLon = 31.429352f,
-                //    MinLat = 58.470034f,
-                //    MaxLat = 58.653285f
-                //},
-                new GeoArea
-                {
-                    Id = 0,
-                    Name = "Юрьев монастырь",
-                    MinLon = 31.187262f,
-                    MaxLon = 31.429352f,
-                    MinLat = 58.470034f,
-                    MaxLat = 58.653285f
-                },
-                new GeoArea
-                {
-                    Id = 0,
-                    Name = "Церковь Николы на Липне",
-                    MinLon = 31.187262f,
-                    MaxLon = 31.429352f,
-                    MinLat = 58.470034f,
-                    MaxLat = 58.653285f
-                },
-                new GeoArea
-                {
-                    Id = 0,
-                    Name = "Софийский собор",
-                    MinLon = 31.187262f,
-                    MaxLon = 31.429352f,
-                    MinLat = 58.470034f,
-                    MaxLat = 58.653285f
-                },
-                new GeoArea
-                {
-                    Id = 0,
-                    Name = "Новгородский кремль",
-                    MinLon = 31.187262f,
-                    MaxLon = 31.429352f,
-                    MinLat = 58.470034f,
-                    MaxLat = 58.653285f
-                }
-        };
-        
+            _cache = cache;
+        }
+
         public GeoArea GetArea(Geolocation location)
         {
             if (location == null)
@@ -65,11 +26,13 @@ namespace NovgorodBot.Services
                 return null;
             }
 
-            //var area = Areas.FirstOrDefault(a => a.IsCovers(location));
-            //return area;
-            var item = Rnd.Next(Areas.Count);
+            _cache.TryGet(CacheKey, out ICollection<GeoArea> areas);
 
-            return Areas[item];
+            var area = areas.FirstOrDefault(a => a.IsCovers(location));
+            return area;
+            //var item = Rnd.Next(Areas.Count);
+
+            //return Areas[item];
         }
     }
 }

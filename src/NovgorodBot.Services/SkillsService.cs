@@ -10,6 +10,8 @@ namespace NovgorodBot.Services
     {
         private const string CacheKey = "SKILLS";
 
+        private static readonly Random Rnd = new Random();
+
         private readonly IRedisCacheService _cache;
 
         public SkillsService(IRedisCacheService cache)
@@ -17,7 +19,6 @@ namespace NovgorodBot.Services
             _cache = cache;
         }
 
-        private static readonly Random Rnd = new Random();
 
         public ICollection<Skill> GetSkills(int? areaId)
         {
