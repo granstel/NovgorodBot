@@ -1,4 +1,5 @@
 ﻿using AutoFixture;
+using GranSteL.Helpers.Redis;
 using Moq;
 using NovgorodBot.Models;
 using NUnit.Framework;
@@ -10,6 +11,8 @@ namespace NovgorodBot.Services.Tests
     {
         private MockRepository _mockRepository;
 
+        private Mock<IRedisCacheService> _cacheMock;
+
         private GeolocationService _target;
 
         private Fixture _fixture;
@@ -19,7 +22,9 @@ namespace NovgorodBot.Services.Tests
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
 
-            _target = new GeolocationService();
+            _cacheMock = _mockRepository.Create<IRedisCacheService>();
+
+            _target = new GeolocationService(_cacheMock.Object);
 
             _fixture = new Fixture();
         }
