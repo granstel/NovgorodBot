@@ -7,5 +7,7 @@ namespace NovgorodBot.Services
     public interface IDialogflowService
     {
         Task<Dialog> GetResponseAsync(Request request, IDictionary<string, string> eventParameters = null);
+
+        Task DeleteContextAsync(string sessionId, string contextName);
     }
 }

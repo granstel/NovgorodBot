@@ -51,16 +51,18 @@ namespace NovgorodBot.Services
         private readonly Logger _log = LogManager.GetLogger(nameof(DialogflowService));
 
         private readonly SessionsClient _dialogflowClient;
+        private readonly ContextsClient _contextsClient;
         private readonly DialogflowConfiguration _configuration;
         private readonly IMapper _mapper;
 
         private readonly Dictionary<Source, Func<Request, EventInput>> _eventResolvers;
 
-        public DialogflowService(SessionsClient dialogflowClient, DialogflowConfiguration configuration, IMapper mapper)
+        public DialogflowService(SessionsClient dialogflowClient, ContextsClient contextsClient, DialogflowConfiguration configuration, IMapper mapper)
         {
             _dialogflowClient = dialogflowClient;
             _configuration = configuration;
             _mapper = mapper;
+            _contextsClient = contextsClient;
 
             _eventResolvers = new Dictionary<Source, Func<Request, EventInput>>
             {
@@ -85,6 +87,11 @@ namespace NovgorodBot.Services
             var response = _mapper.Map<Dialog>(queryResult);
 
             return response;
+        }
+
+        public Task DeleteContextAsync(string sessionId, string contextName)
+        {
+            return _contextsClient.DeleteContextAsync(new ContextName(_configuration.ProjectId, sessionId, contextName));
         }
 
         private DetectIntentRequest CreateQuery(Request request, IDictionary<string, string> eventParameters = null)

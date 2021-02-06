@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Google.Protobuf.WellKnownTypes;
 using NovgorodBot.Models;
 using NovgorodBot.Models.Internal;
-using Enum = System.Enum;
+using NovgorodBot.Services.Extensions;
 
 namespace NovgorodBot.Services
 {
@@ -31,8 +30,10 @@ namespace NovgorodBot.Services
 
             var response = new Response();
 
-            if (request.Geolocation != null && string.IsNullOrEmpty(request.Text))
+            if (request.RequestType.Equals("Geolocation.Allowed", StringComparison.InvariantCultureIgnoreCase) && request.Geolocation != null)
             {
+                _dialogflowService.DeleteContextAsync(request.SessionId, "REQUESTLOCATION").Forget();
+
                 response = await GetResponseByLocationAsync(request);
 
                 return response;
@@ -127,16 +128,16 @@ namespace NovgorodBot.Services
         {
             request.Text = "Start";
 
-            var dialog1 = await _dialogflowService.GetResponseAsync(request);
+            var dialog = await _dialogflowService.GetResponseAsync(request);
 
-            var template = dialog1.Templates.FirstOrDefault();
+            var template = dialog.Templates.FirstOrDefault();
 
-            var text = $"{template?.NotInAnyArea}{dialog1.Response}";
+            var text = $"{template?.NotInAnyArea}{dialog.Response}";
 
             var response = new Response
             {
                 Text = text,
-                Buttons = dialog1.Buttons
+                Buttons = dialog.Buttons
             };
 
             return response;

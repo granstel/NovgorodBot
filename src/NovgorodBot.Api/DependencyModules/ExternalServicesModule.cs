@@ -19,6 +19,7 @@ namespace NovgorodBot.Api.DependencyModules
             builder.RegisterType<QnaClient>().As<IQnaClient>();
             
             builder.Register(RegisterDialogflowSessionsClient).As<SessionsClient>().SingleInstance();
+            builder.Register(RegisterDialogflowContextsClient).As<ContextsClient>().SingleInstance();
 
             builder.Register(RegisterRedisClient).As<IDatabase>().SingleInstance();
         }
@@ -30,6 +31,22 @@ namespace NovgorodBot.Api.DependencyModules
             var credential = GoogleCredential.FromFile(configuration.JsonPath).CreateScoped(SessionsClient.DefaultScopes);
 
             var clientBuilder = new SessionsClientBuilder
+            {
+                ChannelCredentials = credential.ToChannelCredentials()
+            };
+
+            var client = clientBuilder.Build();
+
+            return client;
+        }
+
+        private ContextsClient RegisterDialogflowContextsClient(IComponentContext context)
+        {
+            var configuration = context.Resolve<DialogflowConfiguration>();
+
+            var credential = GoogleCredential.FromFile(configuration.JsonPath).CreateScoped(ContextsClient.DefaultScopes);
+
+            var clientBuilder = new ContextsClientBuilder
             {
                 ChannelCredentials = credential.ToChannelCredentials()
             };
