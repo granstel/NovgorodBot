@@ -18,7 +18,7 @@ namespace NovgorodBot.Messengers.Yandex
 
         private const string IsOldUserKey = "ISOLDUSER";
 
-        private const string ErrorAnswer = "Прости, у меня какие-то проблемы... Давай попробуем ещё раз. Если повторится, расскажи об этому Степану (granstel)";
+        private const string ErrorAnswer = "Прости, у меня какие-то проблемы... Давай попробуем ещё раз";
 
         private readonly Logger _log = LogManager.GetLogger(nameof(YandexService));
 

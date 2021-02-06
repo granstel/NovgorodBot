@@ -39,6 +39,11 @@ namespace NovgorodBot.Services
                 return response;
             }
 
+            if (request.RequestType.Equals("Geolocation.Rejected", StringComparison.InvariantCultureIgnoreCase))
+            {
+                request.Text = request.RequestType;
+            }
+
             if (string.IsNullOrEmpty(request.Text))
             {
                 request.Text = request.RequestType;
@@ -46,14 +51,31 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
 
-            response.Text = dialog?.Response;
+            response.Text = dialog.Response;
 
-            if (dialog?.Action?.Equals("REQUESTLOCATION", StringComparison.InvariantCultureIgnoreCase) == true)
+            if (dialog.Parameters.TryGetValue("IsGeolocationRejected", out string[] isGeolocationRejected))
+            {
+                var isRejected = isGeolocationRejected.Take(1).Select(s =>
+                {
+                    bool.TryParse(s, out bool result);
+
+                    return result;
+                }).FirstOrDefault();
+
+                if (isRejected)
+                {
+                    var template = dialog.Templates.FirstOrDefault();
+
+                    response.Text = $"{template?.Rejected}{response.Text}";
+                }
+            }
+
+            if (dialog.Action?.Equals("REQUESTLOCATION", StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 response.RequestGeolocation = true;
             }
 
-            if (dialog?.Action?.Equals("SHOWRELEVANTSKILLS", StringComparison.InvariantCultureIgnoreCase) == true)
+            if (dialog.Action?.Equals("SHOWRELEVANTSKILLS", StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 var relevantSkills = GetRelevantSkills(dialog);
 
@@ -75,7 +97,7 @@ namespace NovgorodBot.Services
                 response.Buttons = buttons;
             }
 
-            if (dialog?.Buttons?.Any() == true && response.Buttons?.Any() != true)
+            if (dialog.Buttons?.Any() == true && response.Buttons?.Any() != true)
             {
                 response.Buttons = dialog.Buttons;
             }
