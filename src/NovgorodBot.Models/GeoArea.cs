@@ -14,6 +14,8 @@
         
         public string Name { get; set; }
 
+        public bool IsMain { get; set; }
+
         public bool IsCovers(Geolocation location)
         {
             var result = location.Lon >= MinLon &&

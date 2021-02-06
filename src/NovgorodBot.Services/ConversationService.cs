@@ -51,28 +51,17 @@ namespace NovgorodBot.Services
                 response.RequestGeolocation = true;
             }
 
-            if (dialog?.Action?.Equals("SHOWSKILLSBYCATEGORIES", StringComparison.InvariantCultureIgnoreCase) == true)
-            {
-                if (dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames))
-                {
-                    var buttons = GetSkillsButtons(categoriesNames);
-                    response.Buttons = buttons;
-                }
-            }
-
             if (dialog?.Action?.Equals("SHOWRELEVANTSKILLS", StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                if (dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames) && categoriesNames.Any())
-                {
-                    var buttons = GetSkillsButtons(categoriesNames);
-                    response.Buttons = buttons;
-                }
-                else
+                var buttons = GetRelevantButtons(dialog);
+
+                if (buttons?.Any() != true)
                 {
                     var area = _geolocationService.GetArea(request.Geolocation);
-                    var buttons = GetSkillsButtons(area);
-                    response.Buttons = buttons;
+                    buttons = GetSkillsButtons(area);
                 }
+
+                response.Buttons = buttons;
             }
 
             if (dialog?.Buttons?.Any() == true && response.Buttons?.Any() != true)
@@ -84,6 +73,30 @@ namespace NovgorodBot.Services
             response.Finished = dialog.EndConversation;
 
             return response;
+        }
+
+        private ICollection<Button> GetRelevantButtons(Dialog dialog)
+        {
+            dialog.Parameters.TryGetValue("LocationId", out string[] locationsIds);
+            dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames);
+
+            var buttons = new List<Button>();
+
+            if (locationsIds?.Any() == true)
+            {
+                var buttonsByLocations = GetSkillsButtonsByLocations(locationsIds);
+                
+                buttons.AddRange(buttonsByLocations);
+            }
+
+            if (categoriesNames?.Any() == true)
+            {
+                var buttonByCategories = GetSkillsButtonsByCategories(categoriesNames);
+                
+                buttons.AddRange(buttonByCategories);
+            }
+
+            return buttons;
         }
 
         private async Task<Response> GetResponseByLocationAsync(Request request)
@@ -152,9 +165,25 @@ namespace NovgorodBot.Services
             return buttons;
         }
 
-        private Button[] GetSkillsButtons(ICollection<string> categories)
+        private Button[] GetSkillsButtonsByCategories(ICollection<string> categories)
         {
             var skills = _skillsService.GetSkills(categories);
+
+            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
+
+            return buttons;
+        }
+
+        private Button[] GetSkillsButtonsByLocations(ICollection<string> locationsIds)
+        {
+            var areaIds = locationsIds.Select(l =>
+            {
+                int.TryParse(l, out int id);
+
+                return id;
+            }).Distinct().ToList();
+
+            var skills = _skillsService.GetSkills(areaIds);
 
             var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
 

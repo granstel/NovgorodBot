@@ -40,6 +40,15 @@ namespace NovgorodBot.Services
             return skills;
         }
 
+        public ICollection<Skill> GetSkills(ICollection<int> areasId)
+        {
+            _cache.TryGet(CacheKey, out ICollection<Skill> skills);
+
+            skills = FilterSkillsOrDefault(skills, s => areasId?.Any(s.Areas.Contains) == true);
+
+            return skills;
+        }
+
         private ICollection<Skill> FilterSkillsOrDefault(ICollection<Skill> skills, Func<Skill, bool> predicate)
         {
             var filtered = skills
