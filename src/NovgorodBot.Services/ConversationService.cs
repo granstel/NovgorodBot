@@ -67,7 +67,7 @@ namespace NovgorodBot.Services
                 {
                     var template = dialog.Templates.FirstOrDefault();
 
-                    response.Text = $"{template.NotAnyRelevantSkill}{response.Text}";
+                    response.Text = $"{template?.NotAnyRelevantSkill}{response.Text}";
                 }
 
                 var buttons = GetButtons(relevantSkills);
@@ -105,6 +105,8 @@ namespace NovgorodBot.Services
                 
                 skills.AddRange(skillsByCategories);
             }
+
+            skills = skills.DistinctBy(s => s.Name).ToList();
 
             return skills;
         }
