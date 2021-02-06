@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "4b9f26fb-d144-44a8-86f0-931f23cce40e",
+          "id": "9a9999cc-9f82-4332-87e6-a60d0e716bcd",
           "name": "ActionsCategories",
           "required": false,
           "dataType": "@ActionsCategories",
@@ -29,7 +29,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "0f5fbeae-bdf2-42cd-b7db-507c960f396a",
+          "id": "65710d59-9a83-45ec-8374-dcfdff22eac9",
           "name": "LocationId",
           "required": false,
           "dataType": "@LocationId",
@@ -59,7 +59,7 @@
           "type": "4",
           "title": "",
           "payload": {
-            "NotAnyRelevantSkill": "У меня не нашлось прям совсем подходящих, но "
+            "NotAnyRelevantSkill": "У меня не нашлось прям совсем подходящих, но... "
           },
           "textToSpeech": "",
           "lang": "ru",

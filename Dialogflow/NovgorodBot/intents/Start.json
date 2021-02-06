@@ -19,7 +19,7 @@
       ],
       "parameters": [
         {
-          "id": "399a13d3-cc93-4029-8426-a317bf611e1b",
+          "id": "d65587b7-8a99-4ed1-8ac5-e2bf47053d85",
           "name": "IsGeolocationRejected",
           "required": false,
           "dataType": "@Rejected",
@@ -61,8 +61,9 @@
           "type": "4",
           "title": "",
           "payload": {
+            "NotInAnyArea": "Кажется, ты ещё не в городе, но тем не менее... ",
             "Rejected": "Чтож, в таком случае... ",
-            "NotInAnyArea": "Кажется, ты ещё не в городе, но тем не менее... "
+            "WelcomeBack": "С возвращением! "
           },
           "textToSpeech": "",
           "lang": "ru",
