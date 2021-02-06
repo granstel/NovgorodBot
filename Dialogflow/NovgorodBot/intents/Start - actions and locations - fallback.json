@@ -1,6 +1,6 @@
 {
   "id": "e6b4993f-ecbb-4f90-bd51-d6a6c2e3e841",
-  "name": "Start - offer - fallback",
+  "name": "Start - actions and locations - fallback",
   "auto": true,
   "contexts": [
     "OFFER"
@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "23fad169-48a9-4f43-bb68-d830080202b6",
+          "id": "8b46be1a-140a-4ade-8259-1500e19e0cb6",
           "name": "ActionsCategories",
           "required": false,
           "dataType": "@ActionsCategories",
