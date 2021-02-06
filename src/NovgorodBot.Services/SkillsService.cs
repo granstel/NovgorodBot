@@ -60,7 +60,17 @@ namespace NovgorodBot.Services
                 return filtered;
             }
 
-            filtered = skills.Where(s => !s.IsLocationBinded).OrderBy(x => Rnd.Next()).Take(3).ToList();
+            filtered = skills
+                .Where(s => !s.IsLocationBinded)
+                .OrderBy(x => Rnd.Next())
+                .Take(3)
+                .Select(s =>
+                {
+                    s.IsNotRelevant = true;
+
+                    return s;
+                })
+                .ToList();
 
             return filtered;
         }

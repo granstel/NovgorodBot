@@ -16,5 +16,7 @@ namespace NovgorodBot.Models
         public ICollection<int> Areas { get; set; }
 
         public ICollection<string> Categories { get; set; }
+
+        public bool IsNotRelevant { get; set; }
     }
 }

@@ -46,6 +46,8 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request);
 
+            response.Text = dialog?.Response;
+
             if (dialog?.Action?.Equals("REQUESTLOCATION", StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 response.RequestGeolocation = true;
@@ -53,13 +55,22 @@ namespace NovgorodBot.Services
 
             if (dialog?.Action?.Equals("SHOWRELEVANTSKILLS", StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                var buttons = GetRelevantButtons(dialog);
+                var relevantSkills = GetRelevantSkills(dialog);
 
-                if (buttons?.Any() != true)
+                if (relevantSkills?.Any() != true)
                 {
                     var area = _geolocationService.GetArea(request.Geolocation);
-                    buttons = GetSkillsButtons(area);
+                    relevantSkills = GetSkillsByArea(area);
                 }
+
+                if (relevantSkills.All(s => s.IsNotRelevant))
+                {
+                    var template = dialog.Templates.FirstOrDefault();
+
+                    response.Text = $"{template.NotAnyRelevantSkill}{response.Text}";
+                }
+
+                var buttons = GetButtons(relevantSkills);
 
                 response.Buttons = buttons;
             }
@@ -69,34 +80,33 @@ namespace NovgorodBot.Services
                 response.Buttons = dialog.Buttons;
             }
 
-            response.Text = dialog.Response;
-            response.Finished = dialog.EndConversation;
+            response.Finished = (dialog?.EndConversation).GetValueOrDefault();
 
             return response;
         }
 
-        private ICollection<Button> GetRelevantButtons(Dialog dialog)
+        private ICollection<Skill> GetRelevantSkills(Dialog dialog)
         {
             dialog.Parameters.TryGetValue("LocationId", out string[] locationsIds);
             dialog.Parameters.TryGetValue("ActionsCategories", out string[] categoriesNames);
 
-            var buttons = new List<Button>();
+            var skills = new List<Skill>();
 
             if (locationsIds?.Any() == true)
             {
-                var buttonsByLocations = GetSkillsButtonsByLocations(locationsIds);
+                var skillsByLocations = GetSkillsByLocations(locationsIds);
                 
-                buttons.AddRange(buttonsByLocations);
+                skills.AddRange(skillsByLocations);
             }
 
             if (categoriesNames?.Any() == true)
             {
-                var buttonByCategories = GetSkillsButtonsByCategories(categoriesNames);
+                var skillsByCategories = GetSkillsByCategories(categoriesNames);
                 
-                buttons.AddRange(buttonByCategories);
+                skills.AddRange(skillsByCategories);
             }
 
-            return buttons;
+            return skills;
         }
 
         private async Task<Response> GetResponseByLocationAsync(Request request)
@@ -121,7 +131,9 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request, parameters);
 
-            var buttons = GetSkillsButtons(area);
+            var skills = GetSkillsByArea(area);
+
+            var buttons = GetButtons(skills);
 
             response = new Response
             {
@@ -156,25 +168,21 @@ namespace NovgorodBot.Services
             return response;
         }
 
-        private Button[] GetSkillsButtons(GeoArea area)
+        private ICollection<Skill> GetSkillsByArea(GeoArea area)
         {
             var skills = _skillsService.GetSkills(area?.Id);
 
-            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
-
-            return buttons;
+            return skills;
         }
 
-        private Button[] GetSkillsButtonsByCategories(ICollection<string> categories)
+        private ICollection<Skill> GetSkillsByCategories(ICollection<string> categories)
         {
             var skills = _skillsService.GetSkills(categories);
 
-            var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
-
-            return buttons;
+            return skills;
         }
 
-        private Button[] GetSkillsButtonsByLocations(ICollection<string> locationsIds)
+        private ICollection<Skill> GetSkillsByLocations(ICollection<string> locationsIds)
         {
             var areaIds = locationsIds.Select(l =>
             {
@@ -185,6 +193,11 @@ namespace NovgorodBot.Services
 
             var skills = _skillsService.GetSkills(areaIds);
 
+            return skills;
+        }
+
+        private Button[] GetButtons(ICollection<Skill> skills)
+        {
             var buttons = skills.Select(skill => new Button { Text = skill.Name, Url = skill.Url }).ToArray();
 
             return buttons;
