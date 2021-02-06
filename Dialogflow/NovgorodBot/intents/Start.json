@@ -17,7 +17,22 @@
           "lifespan": 2
         }
       ],
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "399a13d3-cc93-4029-8426-a317bf611e1b",
+          "name": "IsGeolocationRejected",
+          "required": false,
+          "dataType": "@Rejected",
+          "value": "$IsGeolocationRejected",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
       "messages": [
         {
           "type": "2",
@@ -46,7 +61,8 @@
           "type": "4",
           "title": "",
           "payload": {
-            "NotInAnyArea": "Кажется, ты ещё не в городе, но тем не менее, "
+            "Rejected": "Чтож, в таком случае... ",
+            "NotInAnyArea": "Кажется, ты ещё не в городе, но тем не менее... "
           },
           "textToSpeech": "",
           "lang": "ru",

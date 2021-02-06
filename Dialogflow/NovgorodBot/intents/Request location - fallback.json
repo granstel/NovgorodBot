@@ -1,6 +1,7 @@
 {
-  "id": "2de402a0-f40e-4413-b738-28513328d81e",
-  "name": "Default Welcome Intent - fallback",
+  "id": "f34dff3b-3193-4d73-9e0c-6b8bddd51efa",
+  "name": "Request location - fallback",
+  "auto": true,
   "contexts": [
     "REQUESTLOCATION"
   ],
@@ -17,9 +18,9 @@
           "textToSpeech": "",
           "lang": "ru",
           "speech": [
-            "Прости, это было не совсем понятно. Нажми, пожалуйста, одну из первых кнопок, потому что этот",
-            "Не совсем понимаю, о чём ты? И всё ещё этот",
-            "Вот сейчас я тебя совсем не понимаю. Просто нажми одну из первых кнопок, ведь этот"
+            "Прости, но тебе надо нажать на одну из кнопок ниже, потому что всё ещё этот",
+            "Просто нажми одну из кнопок, ведь этот",
+            "Пожалуйста, нажми одну из кнопок ниже, потому что этот"
           ],
           "condition": ""
         }
@@ -27,10 +28,10 @@
       "speech": []
     }
   ],
-  "priority": -1,
+  "priority": 500000,
   "webhookUsed": false,
   "webhookForSlotFilling": false,
-  "fallbackIntent": true,
+  "fallbackIntent": false,
   "events": [],
   "conditionalResponses": [],
   "condition": "",

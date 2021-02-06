@@ -1,0 +1,158 @@
+[
+  {
+    "id": "9b8c3b1f-03bd-4506-a13a-3cfd1d4f5617",
+    "data": [
+      {
+        "text": "разрешить ",
+        "userDefined": false
+      },
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "один час",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "242c13b3-4710-4e94-abbe-b9a9730d7f14",
+    "data": [
+      {
+        "text": "разрешить ",
+        "userDefined": false
+      },
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "один день",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "054885b6-cf9e-4253-ae80-51094adbb17c",
+    "data": [
+      {
+        "text": "разрешить ",
+        "userDefined": false
+      },
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " день",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "361b9531-8563-42ae-94e9-6726096193aa",
+    "data": [
+      {
+        "text": "разрешить ",
+        "userDefined": false
+      },
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1 один",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "1ae6873e-dc36-44a8-8cbe-814ccfa49156",
+    "data": [
+      {
+        "text": "разрешить ",
+        "userDefined": false
+      },
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "1 час",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "8bed68f8-2946-4cfe-b48a-72fc17a18b37",
+    "data": [
+      {
+        "text": "разрешаю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "202b88f5-ae2f-4915-b395-ad7782694e75",
+    "data": [
+      {
+        "text": "разрешить",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

@@ -4,7 +4,9 @@
     "data": [
       {
         "text": "отказываюсь",
-        "userDefined": false
+        "meta": "@Rejected",
+        "alias": "IsGeolocationRejected",
+        "userDefined": true
       }
     ],
     "isTemplate": false,
@@ -17,7 +19,9 @@
     "data": [
       {
         "text": "отказываешь",
-        "userDefined": false
+        "meta": "@Rejected",
+        "alias": "IsGeolocationRejected",
+        "userDefined": true
       }
     ],
     "isTemplate": false,
@@ -95,7 +99,9 @@
     "data": [
       {
         "text": "Geolocation.Rejected",
-        "userDefined": false
+        "meta": "@Rejected",
+        "alias": "IsGeolocationRejected",
+        "userDefined": true
       }
     ],
     "isTemplate": false,

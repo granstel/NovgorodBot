@@ -11,6 +11,10 @@
         {
           "name": "REQUESTLOCATION",
           "lifespan": 5
+        },
+        {
+          "name": "DefaultWelcomeIntent-followup",
+          "lifespan": 2
         }
       ],
       "parameters": [],

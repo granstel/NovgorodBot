@@ -14,12 +14,13 @@
       },
       {
         "text": "кремль",
-        "meta": "@sys.ignore",
-        "userDefined": false
+        "meta": "@LocationId",
+        "alias": "LocationId",
+        "userDefined": true
       }
     ],
     "isTemplate": false,
-    "count": 0,
+    "count": 1,
     "lang": "ru",
     "updated": 0
   },
@@ -38,31 +39,6 @@
       },
       {
         "text": "кремлю",
-        "meta": "@LocationId",
-        "alias": "LocationId",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "lang": "ru",
-    "updated": 0
-  },
-  {
-    "id": "ef134c91-46e0-4e80-9a5c-a2161e01670d",
-    "data": [
-      {
-        "text": "посетить",
-        "meta": "@ActionsCategories",
-        "alias": "ActionsCategories",
-        "userDefined": true
-      },
-      {
-        "text": " ",
-        "userDefined": false
-      },
-      {
-        "text": "кремль",
         "meta": "@LocationId",
         "alias": "LocationId",
         "userDefined": true
