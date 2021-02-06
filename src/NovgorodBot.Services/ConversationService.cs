@@ -26,17 +26,18 @@ namespace NovgorodBot.Services
 
         public async Task<Response> GetResponseAsync(Request request)
         {
-            //TODO: processing commands, invoking external services, and other cool asynchronous staff to generate response
-
             var response = new Response();
 
-            if (request.RequestType.Equals("Geolocation.Allowed", StringComparison.InvariantCultureIgnoreCase) && request.Geolocation != null)
+            if (request.Geolocation != null)
             {
-                _dialogflowService.DeleteContextAsync(request.SessionId, "REQUESTLOCATION").Forget();
+                if (request.RequestType.Equals("Geolocation.Allowed", StringComparison.InvariantCultureIgnoreCase) || request.NewSession == true)
+                {
+                    _dialogflowService.DeleteContextAsync(request.SessionId, "REQUESTLOCATION").Forget();
 
-                response = await GetResponseByLocationAsync(request);
+                    response = await GetResponseByLocationAsync(request);
 
-                return response;
+                    return response;
+                }
             }
 
             if (request.RequestType.Equals("Geolocation.Rejected", StringComparison.InvariantCultureIgnoreCase))
@@ -102,6 +103,13 @@ namespace NovgorodBot.Services
                 response.Buttons = dialog.Buttons;
             }
 
+            if (request.NewSession == true && request.IsOldUser)
+            {
+                var template = dialog.Templates.FirstOrDefault();
+
+                response.Text = $"{template?.WelcomeBack}{response.Text}";
+            }
+
             response.Finished = (dialog?.EndConversation).GetValueOrDefault();
 
             return response;
@@ -155,19 +163,33 @@ namespace NovgorodBot.Services
 
             var dialog = await _dialogflowService.GetResponseAsync(request, parameters);
 
+            string responseText;
+
             var skills = GetSkillsByArea(area);
+
+            if(skills.All(s => s.IsNotRelevant))
+            {
+                var template = dialog.Templates.FirstOrDefault();
+                responseText = string.Format(dialog.Response, template?.NoAnySkillsForArea ?? string.Empty);
+            }
+            else
+            {
+                responseText = string.Format(dialog.Response, string.Empty);
+            }
 
             var buttons = GetButtons(skills);
 
             response = new Response
             {
-                Text = dialog.Response,
+                Text = responseText,
                 Buttons = buttons
             };
 
             if (request.NewSession == true && request.IsOldUser)
             {
-                response.Text = $"С возвращением! {response.Text}";
+                var template = dialog.Templates.FirstOrDefault();
+
+                response.Text = $"{template?.WelcomeBack}{response.Text}";
             }
 
             return await Task.FromResult(response);
@@ -182,6 +204,11 @@ namespace NovgorodBot.Services
             var template = dialog.Templates.FirstOrDefault();
 
             var text = $"{template?.NotInAnyArea}{dialog.Response}";
+
+            if (request.NewSession == true && request.IsOldUser)
+            {
+                text = $"{template?.WelcomeBack}{text}";
+            }
 
             var response = new Response
             {

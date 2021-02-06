@@ -7,5 +7,9 @@
         public string NotAnyRelevantSkill { get; set; }
         
         public string Rejected { get; set; }
+        
+        public string WelcomeBack { get; set; }
+
+        public string NoAnySkillsForArea { get; set; }
     }
 }

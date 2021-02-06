@@ -63,7 +63,7 @@ namespace NovgorodBot.Services
             filtered = skills
                 .Where(s => !s.IsLocationBinded)
                 .OrderBy(x => Rnd.Next())
-                .Take(3)
+                .Take(5)
                 .Select(s =>
                 {
                     s.IsNotRelevant = true;
