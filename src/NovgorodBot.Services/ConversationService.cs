@@ -93,15 +93,7 @@ namespace NovgorodBot.Services
 
             if (area == null)
             {
-                request.Text = "Start";
-
-                var dialog1 = await _dialogflowService.GetResponseAsync(request);
-
-                response = new Response
-                {
-                    Text = dialog1.Response,
-                    Buttons = dialog1.Buttons
-                };
+                response = await GetNotInAnyAreaResponseAsync(request);
 
                 return response;
             }
@@ -129,6 +121,25 @@ namespace NovgorodBot.Services
             }
 
             return await Task.FromResult(response);
+        }
+
+        private async Task<Response> GetNotInAnyAreaResponseAsync(Request request)
+        {
+            request.Text = "Start";
+
+            var dialog1 = await _dialogflowService.GetResponseAsync(request);
+
+            var template = dialog1.Templates.FirstOrDefault();
+
+            var text = $"{template?.NotInAnyArea}{dialog1.Response}";
+
+            var response = new Response
+            {
+                Text = text,
+                Buttons = dialog1.Buttons
+            };
+
+            return response;
         }
 
         private Button[] GetSkillsButtons(GeoArea area)

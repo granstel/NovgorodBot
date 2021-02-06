@@ -5,6 +5,7 @@ using Google.Cloud.Dialogflow.V2;
 using Google.Protobuf.WellKnownTypes;
 using NovgorodBot.Models;
 using NovgorodBot.Models.Internal;
+using NovgorodBot.Services.Extensions;
 
 namespace NovgorodBot.Services.Mapping
 {
@@ -14,6 +15,7 @@ namespace NovgorodBot.Services.Mapping
         {
             CreateMap<QueryResult, Dialog>()
                 .ForMember(d => d.Parameters, m => m.MapFrom(s => GetParameters(s)))
+                .ForMember(d => d.Templates, m => m.MapFrom(s => ParseTemplates(s)))
                 .ForMember(d => d.Response, m => m.MapFrom(s => s.FulfillmentText))
                 .ForMember(d => d.Buttons, m => m.MapFrom(s => GetButtons(s)))
                 .ForMember(d => d.ParametersIncomplete, m => m.MapFrom(s => !s.AllRequiredParamsPresent))
@@ -66,9 +68,9 @@ namespace NovgorodBot.Services.Mapping
             return dictionary;
         }
 
-        private Button[] GetButtons(QueryResult s)
+        private Button[] GetButtons(QueryResult queryResult)
         {
-            var quickReplies = s?.FulfillmentMessages
+            var quickReplies = queryResult?.FulfillmentMessages
                 ?.Where(m => m.MessageCase == Intent.Types.Message.MessageOneofCase.QuickReplies)
                 .SelectMany(m => m.QuickReplies.QuickReplies_.Select(r => new Button
                 {
@@ -76,7 +78,7 @@ namespace NovgorodBot.Services.Mapping
                     QuickReply = true
                 })).Where(r => r != null).ToList();
 
-            var cards = s?.FulfillmentMessages
+            var cards = queryResult?.FulfillmentMessages
                 ?.Where(m => m.MessageCase == Intent.Types.Message.MessageOneofCase.Card)
                 .SelectMany(m => m.Card.Buttons.Select(b => new Button
                 {
@@ -92,6 +94,22 @@ namespace NovgorodBot.Services.Mapping
             }
 
             return null;
+        }
+
+        private ICollection<Template> ParseTemplates(QueryResult queryResult)
+        {
+            var result = new List<Template>();
+
+            var sourcePayloads = queryResult?.FulfillmentMessages?
+                .Where(m => m.MessageCase == Intent.Types.Message.MessageOneofCase.Payload)
+                .Select(m => m.Payload.ToString().Deserialize<Template>()).ToList();
+
+            if (sourcePayloads?.Any() == true)
+            {
+                result.AddRange(sourcePayloads);
+            }
+
+            return result;
         }
     }
 }

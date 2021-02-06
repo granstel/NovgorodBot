@@ -14,6 +14,8 @@ namespace NovgorodBot.Models.Internal
 
         public string Action { get; set; }
 
-        public Button[] Buttons { get; set; }
+        public ICollection<Button> Buttons { get; set; }
+
+        public ICollection<Template> Templates { get; set; }
     }
 }

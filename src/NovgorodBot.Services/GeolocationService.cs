@@ -28,10 +28,10 @@ namespace NovgorodBot.Services
 
             _cache.TryGet(CacheKey, out IList<GeoArea> areas);
 
-            //var area = areas.FirstOrDefault(a => a.IsCovers(location));
-            //return area;
-            var item = Rnd.Next(areas.Count);
-            return areas[item];
+            var area = areas.FirstOrDefault(a => a.IsCovers(location));
+            return area;
+            //var item = Rnd.Next(areas.Count);
+            //return areas[item];
         }
     }
 }

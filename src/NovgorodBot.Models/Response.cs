@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace NovgorodBot.Models.Internal
 {
     public class Response
@@ -11,8 +13,9 @@ namespace NovgorodBot.Models.Internal
         public string AlternativeText { get; set; }
 
         public bool Finished { get; set; }
+
         public bool RequestGeolocation { get; set; }
         
-        public Button[] Buttons { get; set; }
+        public ICollection<Button> Buttons { get; set; }
     }
 }
