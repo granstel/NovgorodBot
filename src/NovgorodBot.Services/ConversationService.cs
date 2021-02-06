@@ -92,17 +92,17 @@ namespace NovgorodBot.Services
 
             var skills = new List<Skill>();
 
-            if (locationsIds?.Any() == true)
+            if (locationsIds?.Any(l => !string.IsNullOrEmpty(l)) == true)
             {
                 var skillsByLocations = GetSkillsByLocations(locationsIds);
-                
+
                 skills.AddRange(skillsByLocations);
             }
 
-            if (categoriesNames?.Any() == true)
+            if (categoriesNames?.Any(c => !string.IsNullOrEmpty(c)) == true)
             {
                 var skillsByCategories = GetSkillsByCategories(categoriesNames);
-                
+
                 skills.AddRange(skillsByCategories);
             }
 
@@ -186,12 +186,16 @@ namespace NovgorodBot.Services
 
         private ICollection<Skill> GetSkillsByLocations(ICollection<string> locationsIds)
         {
-            var areaIds = locationsIds.Select(l =>
+            var areaIds = locationsIds.Where(l => !string.IsNullOrEmpty(l)).Select(l =>
             {
-                int.TryParse(l, out int id);
+                if (int.TryParse(l, out var id))
+                {
+                    return id;
+                }
 
-                return id;
-            }).Distinct().ToList();
+                return -1;
+
+            }).Distinct().Where(a => a > -1).ToList();
 
             var skills = _skillsService.GetSkills(areaIds);
 
