@@ -1,12 +1,12 @@
 {
-  "id": "72e9f417-c426-4a4e-988e-b1e055c59155",
-  "name": "Default Fallback Intent",
+  "id": "eec6f7d1-b426-470d-b858-0f1c5b20d6f7",
+  "name": "Thanks",
   "auto": true,
   "contexts": [],
   "responses": [
     {
       "resetContexts": false,
-      "action": "input.unknown",
+      "action": "",
       "affectedContexts": [],
       "parameters": [],
       "messages": [
@@ -15,7 +15,8 @@
           "platform": "telegram",
           "title": "",
           "replies": [
-            "Начать сначала"
+            "Купить сувениры",
+            "Пройти викторину"
           ],
           "textToSpeech": "",
           "lang": "ru",
@@ -27,9 +28,8 @@
           "textToSpeech": "",
           "lang": "ru",
           "speech": [
-            "Не совсем понимаю, о чём ты. Скажи по-другому, или \"начать с начала\"",
-            "Вот эта последняя фраза мне не ясна. Скажи её, пожалуйста, по-другому, или вернись в начало",
-            "А вот это не совсем понятно. Скажи по-другому, или начни с начала"
+            "Люблю помогать! Чем займёшься теперь?",
+            "И тебе спасибо! Чем займёмся теперь?"
           ],
           "condition": ""
         }
@@ -40,7 +40,7 @@
   "priority": 500000,
   "webhookUsed": false,
   "webhookForSlotFilling": false,
-  "fallbackIntent": true,
+  "fallbackIntent": false,
   "events": [],
   "conditionalResponses": [],
   "condition": "",

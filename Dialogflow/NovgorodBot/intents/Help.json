@@ -1,0 +1,48 @@
+{
+  "id": "20d48ce7-cdee-43f7-a18c-c9ef0ec16156",
+  "name": "Help",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "2",
+          "platform": "telegram",
+          "title": "",
+          "replies": [
+            "Дать локацию",
+            "Пройти виторину",
+            "Купить сувениры"
+          ],
+          "textToSpeech": "",
+          "lang": "ru",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Этот навык поможет тебе найти среди навыков про Великий Новгород именно тот, который нужен тебе прямо сейчас. Это делается на основе твоего местоположения или пожеланий того, чем хочешь заняться. У меня сейчас не очень большая коллекция навыков, но она обязательно пополнится! Скажи, чем хочешь заняться, или произнеси \"дать локацию\", если она ещё не передана, и тогда продолжим"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

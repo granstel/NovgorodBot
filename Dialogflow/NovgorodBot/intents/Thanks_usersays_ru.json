@@ -1,0 +1,82 @@
+[
+  {
+    "id": "749affcf-eda3-482d-b141-d5129f36f240",
+    "data": [
+      {
+        "text": "великолепно",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "40f21e15-4f6c-4de9-b3a6-5a45fce9bfd8",
+    "data": [
+      {
+        "text": "здорово",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "3386e695-8c48-45c2-88df-bfd65dafec48",
+    "data": [
+      {
+        "text": "отлично",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "635c1187-91e2-4c50-86b7-698572f85b9c",
+    "data": [
+      {
+        "text": "класс",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "71fab6a7-e88f-4aa3-8d73-89130e493e3b",
+    "data": [
+      {
+        "text": "круто",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "e0971090-5083-4561-a98b-8c5b9f4ad8dd",
+    "data": [
+      {
+        "text": "Спасибо",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

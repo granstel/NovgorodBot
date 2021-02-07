@@ -19,7 +19,7 @@
       ],
       "parameters": [
         {
-          "id": "d65587b7-8a99-4ed1-8ac5-e2bf47053d85",
+          "id": "a3bdd906-6496-4b27-9854-bd3d51f043d3",
           "name": "IsGeolocationRejected",
           "required": false,
           "dataType": "@Rejected",
@@ -40,7 +40,7 @@
           "title": "",
           "replies": [
             "Купить сувениры",
-            "Сочинить историю"
+            "Пройти викторину"
           ],
           "textToSpeech": "",
           "lang": "ru",
@@ -61,9 +61,9 @@
           "type": "4",
           "title": "",
           "payload": {
-            "NotInAnyArea": "Кажется, ты ещё не в городе, но тем не менее... ",
             "Rejected": "Чтож, в таком случае... ",
-            "WelcomeBack": "С возвращением! "
+            "WelcomeBack": "С возвращением! ",
+            "NotInAnyArea": "Кажется, рядом с тобой нет каких-то особых мест, но тем не менее... "
           },
           "textToSpeech": "",
           "lang": "ru",

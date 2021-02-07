@@ -1,0 +1,72 @@
+[
+  {
+    "id": "66afe141-d269-4d26-8bf3-6c85e3d9224a",
+    "data": [
+      {
+        "text": "где я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "987e8de6-c456-478d-833a-812cb30d9b07",
+    "data": [
+      {
+        "text": "где",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "918cc17a-0e3d-4421-b341-442547f6684b",
+    "data": [
+      {
+        "text": "что",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " рядом со мной",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "2c1478d6-5db8-4812-95a9-fba260076134",
+    "data": [
+      {
+        "text": "покажи где я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "2aa02d03-f048-41d4-88be-2b0a9137fd08",
+    "data": [
+      {
+        "text": "скажи где я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  }
+]

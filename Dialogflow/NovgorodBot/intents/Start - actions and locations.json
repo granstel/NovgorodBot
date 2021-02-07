@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "9a9999cc-9f82-4332-87e6-a60d0e716bcd",
+          "id": "62551f86-6798-4465-b26f-49137e9d2553",
           "name": "ActionsCategories",
           "required": false,
           "dataType": "@ActionsCategories",
@@ -29,7 +29,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "65710d59-9a83-45ec-8374-dcfdff22eac9",
+          "id": "3e1acb4d-2e04-4a3a-8f65-baa35da0074c",
           "name": "LocationId",
           "required": false,
           "dataType": "@LocationId",

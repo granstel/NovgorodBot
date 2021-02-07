@@ -1,5 +1,46 @@
 [
   {
+    "id": "ced09ef6-ddd9-46a2-97f6-ff3c5af8b072",
+    "data": [
+      {
+        "text": "давай",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "7ee003ff-3a22-48c4-b937-6260af522ca0",
+    "data": [
+      {
+        "text": "да",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "3ce21dca-5684-4e64-91b6-09a755c76cfa",
+    "data": [
+      {
+        "text": "дада",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
     "id": "1bc5e2cf-81ce-46a8-a638-f094eba825a4",
     "data": [
       {
@@ -127,6 +168,19 @@
     "data": [
       {
         "text": "а что ещё там есть",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "e8106e35-ea92-4377-a7d7-10c647e67279",
+    "data": [
+      {
+        "text": "начать с начала",
         "userDefined": false
       }
     ],

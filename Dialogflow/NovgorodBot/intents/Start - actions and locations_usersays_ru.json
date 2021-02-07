@@ -1,5 +1,129 @@
 [
   {
+    "id": "c1515576-235a-4a20-be18-a4b01e6b3a75",
+    "data": [
+      {
+        "text": "есть какая - нибудь ",
+        "userDefined": false
+      },
+      {
+        "text": "экскурсия",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "8118264a-7b52-419c-bd02-44cd60c385e8",
+    "data": [
+      {
+        "text": "где я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "7cff7912-52a6-4d5d-8697-9f7f4e66a121",
+    "data": [
+      {
+        "text": "где",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "8b7cc6e8-ec14-47e5-94d5-d00e3a778fc9",
+    "data": [
+      {
+        "text": "куда ",
+        "userDefined": false
+      },
+      {
+        "text": "пойти",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "89340f7c-4b0c-426a-ac53-7527b9819710",
+    "data": [
+      {
+        "text": "что",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " здесь есть",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "1eebdad2-e274-49dc-a18a-420392e8cba1",
+    "data": [
+      {
+        "text": "что рядом со мной",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d88dc839-64fc-4992-8c80-197b0d715279",
+    "data": [
+      {
+        "text": "что есть рядом",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "88e6eb3c-546b-4db4-b815-1dc5b15d715b",
+    "data": [
+      {
+        "text": "скажи где я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
     "id": "adf9217e-2468-447a-8598-fa2699a5ed86",
     "data": [
       {

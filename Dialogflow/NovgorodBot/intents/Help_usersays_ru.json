@@ -1,0 +1,83 @@
+[
+  {
+    "id": "2ad8fe12-410f-4f4a-a02c-fb9e481e9f5b",
+    "data": [
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "что",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ты способен",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "196dd147-be1f-4417-bd60-8277c20175f1",
+    "data": [
+      {
+        "text": "что",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " умеешь делать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "3444d5e0-c86d-417f-8448-8d1c562af309",
+    "data": [
+      {
+        "text": "что",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ты такое",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "9c10da6b-921a-4deb-8e4f-2b9c16d93f4e",
+    "data": [
+      {
+        "text": "что",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ты умеешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  }
+]

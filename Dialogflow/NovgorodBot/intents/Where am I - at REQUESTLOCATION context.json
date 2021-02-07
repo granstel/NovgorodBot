@@ -1,0 +1,44 @@
+{
+  "id": "6bd8d8e0-e665-4748-a6aa-c148f83076a4",
+  "name": "Where am I - at REQUESTLOCATION context",
+  "auto": true,
+  "contexts": [
+    "REQUESTLOCATION"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "REQUESTLOCATION",
+      "affectedContexts": [
+        {
+          "name": "REQUESTLOCATION",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "ru",
+          "speech": [
+            "Сейчас посмотрим!",
+            "Сейчас скажу",
+            "Сейчас узнаем!"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
