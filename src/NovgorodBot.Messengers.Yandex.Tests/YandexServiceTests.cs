@@ -42,7 +42,7 @@ namespace NovgorodBot.Messengers.Yandex.Tests
         public async Task ProcessIncomingAsync_Invokations_Success()
         {
             var inputModel = _fixture.Build<InputModel>()
-                .OmitAutoProperties()
+                .With(i => i.Session)
                 .Create();
 
             var request = _fixture.Build<InternalModels.Request>()
