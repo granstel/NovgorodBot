@@ -1,6 +1,6 @@
 {
   "id": "20d48ce7-cdee-43f7-a18c-c9ef0ec16156",
-  "name": "Help",
+  "name": "Help (buttons)",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -11,13 +11,32 @@
       "parameters": [],
       "messages": [
         {
-          "type": "2",
+          "type": "1",
           "platform": "telegram",
-          "title": "",
-          "replies": [
-            "Дать локацию",
-            "Пройти виторину",
-            "Купить сувениры"
+          "title": "кнопки",
+          "buttons": [
+            {
+              "text": "Дать локацию"
+            },
+            {
+              "text": "Поучаствовать в викторине"
+            },
+            {
+              "text": "Пройти квест"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "ru",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "title": "кнопки",
+          "buttons": [
+            {
+              "text": "Купить сувениры"
+            }
           ],
           "textToSpeech": "",
           "lang": "ru",

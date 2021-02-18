@@ -1,6 +1,6 @@
 {
   "id": "75be4133-cbc4-48c4-b801-8444654606df",
-  "name": "Start",
+  "name": "Start (buttons and templates)",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -19,7 +19,7 @@
       ],
       "parameters": [
         {
-          "id": "a3bdd906-6496-4b27-9854-bd3d51f043d3",
+          "id": "f261cb78-067a-4fd5-aa2a-7daaf73ae00a",
           "name": "IsGeolocationRejected",
           "required": false,
           "dataType": "@Rejected",
@@ -35,12 +35,32 @@
       ],
       "messages": [
         {
-          "type": "2",
+          "type": "1",
           "platform": "telegram",
-          "title": "",
-          "replies": [
-            "Купить сувениры",
-            "Пройти викторину"
+          "title": "кнопки",
+          "buttons": [
+            {
+              "text": "Поучаствовать в викторине"
+            },
+            {
+              "text": "Пройти квест"
+            },
+            {
+              "text": "Купить сувениры"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "ru",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "title": "кнопки",
+          "buttons": [
+            {
+              "text": "Пожаловаться"
+            }
           ],
           "textToSpeech": "",
           "lang": "ru",
@@ -61,9 +81,9 @@
           "type": "4",
           "title": "",
           "payload": {
-            "Rejected": "Чтож, в таком случае... ",
+            "NotInAnyArea": "Кажется, рядом с тобой нет каких-то особых мест, но тем не менее... ",
             "WelcomeBack": "С возвращением! ",
-            "NotInAnyArea": "Кажется, рядом с тобой нет каких-то особых мест, но тем не менее... "
+            "Rejected": "Чтож, в таком случае... "
           },
           "textToSpeech": "",
           "lang": "ru",

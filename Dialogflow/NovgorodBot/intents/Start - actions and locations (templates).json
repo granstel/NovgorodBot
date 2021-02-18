@@ -1,6 +1,6 @@
 {
   "id": "5b1a2e6a-bf22-4dbb-8314-ad98ea8d85ef",
-  "name": "Start - actions and locations",
+  "name": "Start - actions and locations (templates)",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "62551f86-6798-4465-b26f-49137e9d2553",
+          "id": "d17f557f-493f-4145-8735-f294e58fafea",
           "name": "ActionsCategories",
           "required": false,
           "dataType": "@ActionsCategories",
@@ -29,7 +29,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "3e1acb4d-2e04-4a3a-8f65-baa35da0074c",
+          "id": "b879fb72-21c2-43a9-8c2e-42eaa8d359f1",
           "name": "LocationId",
           "required": false,
           "dataType": "@LocationId",
