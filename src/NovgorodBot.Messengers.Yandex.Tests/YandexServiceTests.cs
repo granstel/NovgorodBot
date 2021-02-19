@@ -7,7 +7,8 @@ using Moq;
 using NUnit.Framework;
 using Yandex.Dialogs.Models;
 using Yandex.Dialogs.Models.Input;
-using InternalModels = NovgorodBot.Models.Internal;
+using Request = NovgorodBot.Models.Request;
+using Response = NovgorodBot.Models.Response;
 
 namespace NovgorodBot.Messengers.Yandex.Tests
 {
@@ -45,22 +46,22 @@ namespace NovgorodBot.Messengers.Yandex.Tests
                 .With(i => i.Session)
                 .Create();
 
-            var request = _fixture.Build<InternalModels.Request>()
+            var request = _fixture.Build<Request>()
                 .OmitAutoProperties()
                 .Create();
 
-            _mapper.Setup(m => m.Map<InternalModels.Request>(It.IsAny<InputModel>())).Returns(request);
+            _mapper.Setup(m => m.Map<Request>(It.IsAny<InputModel>())).Returns(request);
 
             _conversationService.Setup(s => s.GetResponseAsync(request)).ReturnsAsync(() => null);
 
-            _mapper.Setup(m => m.Map(It.IsAny<InternalModels.Request>(), It.IsAny<InternalModels.Response>())).Returns(() => null);
+            _mapper.Setup(m => m.Map(It.IsAny<Request>(), It.IsAny<Response>())).Returns(() => null);
 
             var output = _fixture.Build<OutputModel>()
                 .With(o => o.Session)
                 .OmitAutoProperties()
                 .Create();
 
-            _mapper.Setup(m => m.Map<OutputModel>(It.IsAny<InternalModels.Response>())).Returns(output);
+            _mapper.Setup(m => m.Map<OutputModel>(It.IsAny<Response>())).Returns(output);
             _mapper.Setup(m => m.Map(It.IsAny<InputModel>(), It.IsAny<OutputModel>())).Returns(() => null);
 
 

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using NovgorodBot.Models;
-using NovgorodBot.Models.Internal;
 using NovgorodBot.Services.Extensions;
 
 namespace NovgorodBot.Services
@@ -13,104 +13,94 @@ namespace NovgorodBot.Services
         private readonly IDialogflowService _dialogflowService;
         private readonly IGeolocationService _geolocationService;
         private readonly ISkillsService _skillsService;
+        private readonly IMapper _mapper;
 
         public ConversationService(
             IDialogflowService dialogflowService,
             IGeolocationService geolocationService,
-            ISkillsService skillsService)
+            ISkillsService skillsService,
+            IMapper mapper)
         {
             _dialogflowService = dialogflowService;
             _geolocationService = geolocationService;
             _skillsService = skillsService;
+            _mapper = mapper;
         }
 
         public async Task<Response> GetResponseAsync(Request request)
         {
-            var response = new Response();
+            var response = await TryGetResponseForGeolocationAsync(request);
 
-            if (request.Geolocation != null)
+            if (response == null)
             {
-                if (request.RequestType.Equals("Geolocation.Allowed", StringComparison.InvariantCultureIgnoreCase) || request.NewSession == true)
+                if (string.IsNullOrEmpty(request.Text))
                 {
-                    _dialogflowService.DeleteContextAsync(request.SessionId, "REQUESTLOCATION").Forget();
-
-                    response = await GetResponseByLocationAsync(request);
-
-                    return response;
+                    request.Text = request.RequestType;
                 }
-            }
 
-            if (request.RequestType.Equals("Geolocation.Rejected", StringComparison.InvariantCultureIgnoreCase))
-            {
-                request.Text = request.RequestType;
-            }
+                var dialog = await _dialogflowService.GetResponseAsync(request);
 
-            if (string.IsNullOrEmpty(request.Text))
-            {
-                request.Text = request.RequestType;
-            }
+                response = _mapper.Map<Response>(dialog);
 
-            var dialog = await _dialogflowService.GetResponseAsync(request);
-
-            response.Text = dialog.Response;
-
-            if (dialog.Parameters.TryGetValue("IsGeolocationRejected", out string[] isGeolocationRejected))
-            {
-                var isRejected = isGeolocationRejected.Take(1).Select(s =>
-                {
-                    bool.TryParse(s, out bool result);
-
-                    return result;
-                }).FirstOrDefault();
-
-                if (isRejected)
+                if (dialog.IsLocationRejected())
                 {
                     var template = dialog.Templates.FirstOrDefault();
 
                     response.Text = $"{template?.Rejected}{response.Text}";
                 }
-            }
 
-            if (dialog.Action?.Equals("REQUESTLOCATION", StringComparison.InvariantCultureIgnoreCase) == true)
-            {
-                response.RequestGeolocation = true;
-            }
+                response = TryGetResponseWithRelevantSkills(request, dialog, response);
 
-            if (dialog.Action?.Equals("SHOWRELEVANTSKILLS", StringComparison.InvariantCultureIgnoreCase) == true)
-            {
-                var relevantSkills = GetRelevantSkills(dialog);
-
-                if (relevantSkills?.Any() != true)
-                {
-                    var area = _geolocationService.GetArea(request.Geolocation);
-                    relevantSkills = GetSkillsByArea(area);
-                }
-
-                if (relevantSkills.All(s => s.IsNotRelevant))
+                if (request.NewSession == true && request.IsOldUser)
                 {
                     var template = dialog.Templates.FirstOrDefault();
 
-                    response.Text = $"{template?.NotAnyRelevantSkill}{response.Text}";
+                    response.Text = $"{template?.WelcomeBack}{response.Text}";
                 }
-
-                var buttons = GetButtons(relevantSkills);
-
-                response.Buttons = buttons;
             }
 
-            if (dialog.Buttons?.Any() == true && response.Buttons?.Any() != true)
+            return response;
+        }
+
+        private Response TryGetResponseWithRelevantSkills(Request request, Dialog dialog, Response response)
+        {
+            if (!dialog.IsRelevantSkillsRequested())
             {
-                response.Buttons = dialog.Buttons;
+                return response;
             }
 
-            if (request.NewSession == true && request.IsOldUser)
+            var relevantSkills = GetRelevantSkills(dialog);
+
+            if (relevantSkills?.Any() != true)
+            {
+                var area = _geolocationService.GetArea(request.Geolocation);
+                relevantSkills = GetSkillsByArea(area);
+            }
+
+            if (relevantSkills.All(s => s.IsNotRelevant))
             {
                 var template = dialog.Templates.FirstOrDefault();
 
-                response.Text = $"{template?.WelcomeBack}{response.Text}";
+                response.Text = $"{template?.NotAnyRelevantSkill}{response.Text}";
             }
 
-            response.Finished = (dialog?.EndConversation).GetValueOrDefault();
+            var buttons = GetButtons(relevantSkills);
+
+            response.Buttons = buttons;
+
+            return response;
+        }
+
+        private async Task<Response> TryGetResponseForGeolocationAsync(Request request)
+        {
+            if (request.Geolocation == null || !request.IsUserAllowGeolocation() || request.NewSession != true)
+            {
+                return null;
+            }
+
+            _dialogflowService.DeleteContextAsync(request.SessionId, "REQUESTLOCATION").Forget();
+
+            var response = await GetResponseByLocationAsync(request);
 
             return response;
         }
@@ -167,7 +157,7 @@ namespace NovgorodBot.Services
 
             var skills = GetSkillsByArea(area);
 
-            if(skills.All(s => s.IsNotRelevant))
+            if (skills.All(s => s.IsNotRelevant))
             {
                 var template = dialog.Templates.FirstOrDefault();
                 responseText = string.Format(dialog.Response, template?.NoAnySkillsForArea ?? string.Empty);

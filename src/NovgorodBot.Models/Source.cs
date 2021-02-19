@@ -1,4 +1,4 @@
-namespace NovgorodBot.Models.Internal
+namespace NovgorodBot.Models
 {
     /// <summary>
     /// Источник запроса, мессенджер

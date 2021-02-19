@@ -1,7 +1,7 @@
-﻿using NovgorodBot.Models.Internal;
-using NovgorodBot.Services.Extensions;
+﻿using NovgorodBot.Services.Extensions;
 using AutoFixture;
 using Newtonsoft.Json;
+using NovgorodBot.Models;
 using NUnit.Framework;
 
 namespace NovgorodBot.Services.Tests.Extensions

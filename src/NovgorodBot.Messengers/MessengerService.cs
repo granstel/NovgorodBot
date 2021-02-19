@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
-using NovgorodBot.Models.Internal;
+using NovgorodBot.Models;
 using NovgorodBot.Services;
 
 namespace NovgorodBot.Messengers

@@ -7,7 +7,8 @@ using NovgorodBot.Services;
 using NovgorodBot.Services.Extensions;
 using Yandex.Dialogs.Models;
 using Yandex.Dialogs.Models.Input;
-using InternalModels = NovgorodBot.Models.Internal;
+using Request = NovgorodBot.Models.Request;
+using Response = NovgorodBot.Models.Response;
 
 namespace NovgorodBot.Messengers.Yandex
 {
@@ -31,7 +32,7 @@ namespace NovgorodBot.Messengers.Yandex
             _cache = cache;
         }
 
-        protected override InternalModels.Request Before(InputModel input)
+        protected override Request Before(InputModel input)
         {
             var request = base.Before(input);
 
@@ -42,13 +43,13 @@ namespace NovgorodBot.Messengers.Yandex
             return request;
         }
 
-        protected override InternalModels.Response ProcessCommand(InternalModels.Request request)
+        protected override Response ProcessCommand(Request request)
         {
-            InternalModels.Response response = null;
+            Response response = null;
 
             if (PingCommand.Equals(request.Text, StringComparison.InvariantCultureIgnoreCase))
             {
-                response = new InternalModels.Response { Text = PongResponse };
+                response = new Response { Text = PongResponse };
             }
 
             return response;
@@ -66,7 +67,7 @@ namespace NovgorodBot.Messengers.Yandex
             {
                 _log.Error(e);
 
-                var response = new InternalModels.Response { Text = ErrorAnswer };
+                var response = new Response { Text = ErrorAnswer };
 
                 result = await AfterAsync(input, response);
             }
@@ -74,7 +75,7 @@ namespace NovgorodBot.Messengers.Yandex
             return result;
         }
 
-        protected override async Task<OutputModel> AfterAsync(InputModel input, InternalModels.Response response)
+        protected override async Task<OutputModel> AfterAsync(InputModel input, Response response)
         {
             var output = await base.AfterAsync(input, response);
 

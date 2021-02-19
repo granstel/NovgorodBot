@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using NovgorodBot.Models.Internal;
+using NovgorodBot.Models;
 
 namespace NovgorodBot.Services
 {

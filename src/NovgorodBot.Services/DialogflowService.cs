@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Google.Cloud.Dialogflow.V2;
 using Google.Protobuf.WellKnownTypes;
-using NovgorodBot.Models.Internal;
 using NovgorodBot.Services.Configuration;
 using NovgorodBot.Services.Extensions;
 using NLog;
+using NovgorodBot.Models;
 
 namespace NovgorodBot.Services
 {

@@ -1,4 +1,6 @@
-namespace NovgorodBot.Models.Internal
+using System;
+
+namespace NovgorodBot.Models
 {
     public class Request
     {
@@ -21,5 +23,19 @@ namespace NovgorodBot.Models.Internal
         public Geolocation Geolocation { get; set; }
 
         public string RequestType { get; set; }
+
+        public bool IsUserAllowGeolocation()
+        {
+            var result = RequestType.Equals("Geolocation.Allowed", StringComparison.InvariantCultureIgnoreCase);
+
+            return result;
+        }
+
+        public bool IsUserRejectGeolocation()
+        {
+            var result = RequestType.Equals("Geolocation.Rejected", StringComparison.InvariantCultureIgnoreCase);
+
+            return result;
+        }
     }
 }

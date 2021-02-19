@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NovgorodBot.Models.Internal
+namespace NovgorodBot.Models
 {
     public class Response
     {
