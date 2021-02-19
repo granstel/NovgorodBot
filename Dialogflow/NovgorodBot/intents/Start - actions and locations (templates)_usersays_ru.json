@@ -1,5 +1,111 @@
 [
   {
+    "id": "3d87dd9b-ded8-45fc-8ac4-8e801f3411d8",
+    "data": [
+      {
+        "text": "хочу ",
+        "userDefined": false
+      },
+      {
+        "text": "пройтись",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": " к ",
+        "userDefined": false
+      },
+      {
+        "text": "памятнику тысячелетия",
+        "alias": "locationid",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "90652481-f4d2-4c3e-a979-eed21ebfbb56",
+    "data": [
+      {
+        "text": "хочу ",
+        "userDefined": false
+      },
+      {
+        "text": "погулять",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      },
+      {
+        "text": " к ",
+        "userDefined": false
+      },
+      {
+        "text": "памятнику тысячелетия",
+        "meta": "@LocationId",
+        "alias": "LocationId",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "e35d8003-d4c4-48e6-9975-d73dbff7bef7",
+    "data": [
+      {
+        "text": "пожаловаться",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "735c83b7-8be4-4fcc-b60f-9cfcee53d939",
+    "data": [
+      {
+        "text": "жалоба",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "b8718552-47c2-4f8b-81ba-4e74f29958d6",
+    "data": [
+      {
+        "text": "оставит ",
+        "userDefined": false
+      },
+      {
+        "text": "жалобу",
+        "meta": "@ActionsCategories",
+        "alias": "ActionsCategories",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
     "id": "c1515576-235a-4a20-be18-a4b01e6b3a75",
     "data": [
       {

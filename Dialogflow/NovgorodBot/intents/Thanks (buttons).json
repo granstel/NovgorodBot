@@ -1,6 +1,6 @@
 {
   "id": "eec6f7d1-b426-470d-b858-0f1c5b20d6f7",
-  "name": "Thanks",
+  "name": "Thanks (buttons)",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -11,12 +11,35 @@
       "parameters": [],
       "messages": [
         {
-          "type": "2",
+          "type": "1",
           "platform": "telegram",
-          "title": "",
-          "replies": [
-            "Купить сувениры",
-            "Пройти викторину"
+          "title": "кнопки",
+          "buttons": [
+            {
+              "text": "Пройти викторину"
+            },
+            {
+              "text": "Поучаствовать в квесте"
+            },
+            {
+              "text": "Купить сувениры"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "ru",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "title": "кнопки",
+          "buttons": [
+            {
+              "text": "Погулять"
+            },
+            {
+              "text": "Пожаловаться"
+            }
           ],
           "textToSpeech": "",
           "lang": "ru",

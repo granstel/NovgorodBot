@@ -1,6 +1,6 @@
 {
   "id": "933a1e33-c3ea-4873-a9b2-0eb8a706c0e5",
-  "name": "RelevantToLocation",
+  "name": "RelevantToLocation (templates)",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -19,7 +19,7 @@
       ],
       "parameters": [
         {
-          "id": "0107b600-81d4-424c-8879-d0a303f53eac",
+          "id": "a6c3683b-839a-466a-9fbf-66bbcf27ddcf",
           "name": "areaName",
           "required": false,
           "dataType": "@sys.any",
