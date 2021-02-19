@@ -51,15 +51,22 @@ namespace NovgorodBot.Services
 
                 response = TryGetResponseWithRelevantSkills(request, dialog, response);
 
-                if (request.NewSession == true && request.IsOldUser)
-                {
-                    var template = dialog.Templates.FirstOrDefault();
-
-                    response.Text = $"{template?.WelcomeBack}{response.Text}";
-                }
+                response.Text = TryGetTextForOldUser(request, dialog, response);
             }
 
             return response;
+        }
+
+        private string TryGetTextForOldUser(Request request, Dialog dialog, Response response)
+        {
+            if (request.NewSession == true && request.IsOldUser)
+            {
+                var template = dialog.Templates.FirstOrDefault();
+
+                response.Text = $"{template?.WelcomeBack}{response.Text}";
+            }
+
+            return response.Text;
         }
 
         private Response TryGetResponseWithRelevantSkills(Request request, Dialog dialog, Response response)
@@ -175,12 +182,7 @@ namespace NovgorodBot.Services
                 Buttons = buttons
             };
 
-            if (request.NewSession == true && request.IsOldUser)
-            {
-                var template = dialog.Templates.FirstOrDefault();
-
-                response.Text = $"{template?.WelcomeBack}{response.Text}";
-            }
+            response.Text = TryGetTextForOldUser(request, dialog, response);
 
             return await Task.FromResult(response);
         }
