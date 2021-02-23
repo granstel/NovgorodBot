@@ -100,7 +100,7 @@ namespace NovgorodBot.Services
 
         private async Task<Response> TryGetResponseForGeolocationAsync(Request request)
         {
-            if (request.Geolocation == null || !request.IsUserAllowGeolocation() || request.NewSession != true)
+            if (request.Geolocation == null || !request.IsUserAllowGeolocation())
             {
                 return null;
             }

@@ -31,7 +31,7 @@ namespace NovgorodBot.Models
                 return result;
             }).FirstOrDefault();
 
-            return isRejected == true || isRejected == null;
+            return isRejected == true;
         }
 
         public bool IsLocationRequested()
