@@ -1,5 +1,372 @@
 [
   {
+    "id": "0e55cb28-020b-44a2-a653-5b1b96abb6e5",
+    "data": [
+      {
+        "text": "Транспорт Новгорода",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "6cf855a1-6314-42d9-b1ea-8bd414f76f82",
+    "data": [
+      {
+        "text": "Новгород",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Гайд",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "8df413bf-4d8a-47fa-ac06-ce051302b87a",
+    "data": [
+      {
+        "text": "гид по памятнику ",
+        "userDefined": false
+      },
+      {
+        "text": "Тысячелетие россии",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "5af3c42e-4a95-47fe-bacb-afb7c4d62b31",
+    "data": [
+      {
+        "text": "Садко в ",
+        "userDefined": false
+      },
+      {
+        "text": "Новгороде",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "f343515d-03e9-4caa-944e-74685fd5db32",
+    "data": [
+      {
+        "text": "Гид на ",
+        "userDefined": false
+      },
+      {
+        "text": "один день",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d5e73cf6-971a-498f-ba5d-7a46e63972fb",
+    "data": [
+      {
+        "text": "Гид по ",
+        "userDefined": false
+      },
+      {
+        "text": "великому Новгороду",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "1419b64e-7185-450e-8825-63f17476aaaf",
+    "data": [
+      {
+        "text": "Прогулка в ",
+        "userDefined": false
+      },
+      {
+        "text": "Великом Новгороде",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "8d7c154d-248a-4e53-ae0c-95f795759f39",
+    "data": [
+      {
+        "text": "Найди",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " клад",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "428eda92-2a7d-4088-8f95-508822b88539",
+    "data": [
+      {
+        "text": "Фото в ",
+        "userDefined": false
+      },
+      {
+        "text": "Великом Новгороде",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "40251e91-7a62-4f12-bdcb-0c93aeb18862",
+    "data": [
+      {
+        "text": "Бегущий по ",
+        "userDefined": false
+      },
+      {
+        "text": "барам",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "d95fdf82-e22f-4b04-80f4-a52f3019e9ae",
+    "data": [
+      {
+        "text": "Юстина",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " в ",
+        "userDefined": false
+      },
+      {
+        "text": "Новгороде",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "49aef22b-3813-453b-a573-72d49f88f6c4",
+    "data": [
+      {
+        "text": "Храм Николы на Липне",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "3c6b4410-54a0-4f1d-a48f-84905e434f45",
+    "data": [
+      {
+        "text": "Гусли",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " садко",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "ad59c55e-92e6-4570-ba36-e5aba39c6649",
+    "data": [
+      {
+        "text": "Новгородский",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " фланер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "fa18881b-73d0-4982-98e2-a03cac0ab793",
+    "data": [
+      {
+        "text": "История ",
+        "userDefined": false
+      },
+      {
+        "text": "Великого Новгорода",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "4513163e-7865-41e5-8a7d-9d2dc7b4f214",
+    "data": [
+      {
+        "text": "Новгородские",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " хроники",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "e18f7098-1d30-4375-8086-468546c379da",
+    "data": [
+      {
+        "text": "Нейросеть ",
+        "userDefined": false
+      },
+      {
+        "text": "Великого Новгорода",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "c568e46b-b605-471b-8bc8-82d30f85b479",
+    "data": [
+      {
+        "text": "Семейный ",
+        "userDefined": false
+      },
+      {
+        "text": "тур",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " по ",
+        "userDefined": false
+      },
+      {
+        "text": "барам",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "4fee7026-97ed-4ba6-b5b8-4a875d7e3c32",
+    "data": [
+      {
+        "text": "Хочу пожаловаться в ",
+        "userDefined": false
+      },
+      {
+        "text": "Великом Новгороде",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
+    "id": "b4b7b674-4247-40fc-b9d1-2ef0c561f380",
+    "data": [
+      {
+        "text": "Сувениры Великого Новгорода",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "ru",
+    "updated": 0
+  },
+  {
     "id": "5b0b5e68-46e1-4c00-ad5e-3e7849eb5e6e",
     "data": [
       {

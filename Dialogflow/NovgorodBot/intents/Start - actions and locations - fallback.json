@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "8b46be1a-140a-4ade-8259-1500e19e0cb6",
+          "id": "ab100b58-ff1a-4f59-a10e-e9b578b0de45",
           "name": "ActionsCategories",
           "required": false,
           "dataType": "@ActionsCategories",

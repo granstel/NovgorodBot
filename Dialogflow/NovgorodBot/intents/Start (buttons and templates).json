@@ -19,7 +19,7 @@
       ],
       "parameters": [
         {
-          "id": "f261cb78-067a-4fd5-aa2a-7daaf73ae00a",
+          "id": "8563a0d6-7895-4c66-85fc-f76db722deb8",
           "name": "IsGeolocationRejected",
           "required": false,
           "dataType": "@Rejected",
@@ -59,6 +59,9 @@
           "title": "кнопки",
           "buttons": [
             {
+              "text": "Узнать расписание транспорта"
+            },
+            {
               "text": "Пожаловаться"
             }
           ],
@@ -81,9 +84,9 @@
           "type": "4",
           "title": "",
           "payload": {
-            "NotInAnyArea": "Кажется, рядом с тобой нет каких-то особых мест, но тем не менее... ",
+            "Rejected": "Чтож, в таком случае... ",
             "WelcomeBack": "С возвращением! ",
-            "Rejected": "Чтож, в таком случае... "
+            "NotInAnyArea": "Кажется, рядом с тобой нет каких-то особых мест, но тем не менее... "
           },
           "textToSpeech": "",
           "lang": "ru",
