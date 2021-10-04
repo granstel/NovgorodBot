@@ -85,7 +85,7 @@ namespace NovgorodBot.Messengers
                 return string.Equals(_configuration.IncomingToken, token, StringComparison.InvariantCultureIgnoreCase);
             }
 
-            return false;
+            return true;
         }
     }
 }
